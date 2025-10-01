@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[hidelinks]{hyperref}
+
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\title{Analysis}
+\date{}
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Sets}
+
+\textbf{Definition:} A set is a collection of objects, called the elements or members of the set. 
+
+We write $x \in X$ if $x$ is an element of the set $X$ and $x \notin X$ if $x$ is not an element of $X$.
+
+Two sets $X = Y$ if $x \in X$ iff $x \in Y$ (where ``iff'' and $\iff$ means ``if and only if'').
+
+The empty set is denoted by $\emptyset$, that is the set without any elements. $X$ is nonempty if it has at least one element.
+
+We can define sets by listing its elements: $X = \{a, b, c, d\}$. 
+
+We can have infinite sets, for example:
+\begin{itemize}
+    \item The rational numbers: $\mathbb{Q} = \left\{\frac{p}{q} : p, q \in \mathbb{Z}, q \neq 0\right\}$
+\end{itemize}
+
+\subsection{Subsets}
+$A$ is a subset of a set $X$ or $A$ is included in $X$, written $A \subseteq X$, if every element of $A$ belongs to $X$. $A$ is a proper subset of $X$, written as $A \subset X$, when $A \subseteq X$, but $A \ne X$. 
+
+\textbf{Definition:} The power set $P(X)$ of a set $X$ is the set of all subsets of $X$. 
+
+\textbf{Example:} $X = \{1,2,3\}$, then 
+\begin{align*}
+P(X) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}
+\end{align*} The power set $P(X)$ of a set $X$ with $|X| = n$ elements has $|P(X)|= 2^n$ elements because, in defining a subset, we have two independent choices for each element. Thus, the notation $2^X = P(X)$ is also in use.
+
+The Cartesian product $A x B$ of sets $A, B$ is the set whose members all possible ordered pairs $(a, b)$ with $a \in A$, $b \in B$, thus $A \times B = \{(a,b): a \in A, b \in B \}$ and $|A \times B|=|A||B|$.
+
+\subsection{Relations}
+Any subset of the Cartesian product of two sets $X, Y$ defines a (binary) relation $R \subseteq X \times Y$ between these two sets. Given $(x, y) \in R$ we may denote this inclusion simply as $xRy$. 
+
+\textbf{Notation:} $\forall$ means 'for all', $\exists$ means 'exists'.
+\begin{itemize}
+    \item A binary relation $R$ is univalent if $\forall x \in X, \forall y \in Y, \forall z \in Y$, we have $((x, y) \in R$ and $(x, z) \in R) \Rightarrow y = z$.
+    \item A binary relation $R$ is total if $\forall x \in X, \exists y \in Y$ we have $(x, y) \in R$.
+\end{itemize}  
+
+\textbf{Definition:} A partially defined function is a univalent binary relation, and a function is a univalent and total binary relation. Thus a function $f: X \rightarrow Y$ is defined by a univalent and total $xRy \iff y = f(x)$. 
+
+The set of all functions from $X$ to $Y$ is commonly denoted as $Y^X = \prod_{x \in X} Y$.
+
+\subsection{Orders And Equivalences}
+\textbf{Definition:}An order $\leqq$ on a set $X$ is a binary relation on $X$: s.t. for every $x, y, z \in X$: 
+\begin{itemize}
+    \item $x\leqq x$ (reflexivity)
+    \item $Ifx\leqq y$ and $y \leqq x$ then $x = y$ (antisymmetry)
+    \item $Ifx \leqq y$ and $y \leqq z$ then $x \leqq z$ (transitivity)
+\end{itemize} 
+An order is linear or total if $\forall x, y \in X$ either $x \leqq y$ or $y \leqq x$. If $\leqq$ is an order, then we define a strict order by $x < y$ if $x \leqq y$ and $x \neq y$. If for a relation $~$ in 2. instead of antisymmetry we have symmetry: 2. If $x \sim y$ then $y \sim x$ then $\sim$ is called an equivalence relation.
+
+\subsection{Functions}
+\textbf{Definition:} Per definition a function $f: X \rightarrow Y$ is a univalent and total relation, that is for every $x \in X$ there is a unique $y = f(x) \in Y$. $Do(f) = X$ is called the domain of $f$, and $Ran(f) = {y \in Y: \exists x \in X, y = f (x)} \subseteq Y$ is called the range of $f$. Also $f(A) = {y \in Y: \exists x \in A, y = f(x)}$ for some $A \subseteq X$.
+
+The identity function $id_X: X \rightarrow X$ on a set $X$ is the function that maps every element of $X$ to itself, that is $id_X (x) = x$ for all $x \in X$.
+
+The characteristic or indicator function $\chi_A: X \rightarrow \{0,1\}$ of $A \subseteq X$ is defined as $\chi_A(x) = \begin{cases}
+1 & \text{if } x \in A \\
+0 & \text{if } x \notin A
+\end{cases}$.
+
+The graph of a function $f: X \rightarrow Y$ is defined as $G_f = \{(x,y) \in X \times Y:y=f(x)\}$.
+
+\subsubsection{Properties of a Function}
+
+A function $f: X \rightarrow Y$ is 
+\begin{itemize}
+    \item injective (one-to-one) if it maps distinct elements to distinct elements, that is $x_1, x_2 \in X$ and $x_1 \neq x_2$ implies that $f(x_1) \neq f(x_2)$.
+    \item surjective (onto) if its range $Ran(f) = Y$, that is for every $y \in Y$ there exists an $x \in X$, s.t. $y = f(x)$.
+\end{itemize}
+If a function is both injective and surjective then its bijective.
+\\\\
+We define the composition $f \circ g(z)=f(g(z))$ of functions $f:Y \rightarrow X$ and $g:Z \rightarrow Y$. Note that we need the inclusion $Ran(g) \subseteq Do(f)$. $\circ$ is associative. A bijective function $f: X \rightarrow Y$ has an inverse $f^{-1}: Y \rightarrow X$ defined by $f^{-1}(y) =x$ if and only if $f(x) =y$ that is $f \circ f^{-1} = id_Y$ and $f^{-1} \circ f = id_X$. If $f: X \rightarrow Y$ is merely injective than still $f: X \rightarrow Ran(f)$ is bijective, thus invertible on its range with inverse $f^{-1}: Ran(f) \rightarrow X$.
+
+\subsubsection{Groups, Monoids, Fields}
+
+\textbf{Definition:} Given a function $f: X \times X \rightarrow X$ we may denote $f(x,y) = x * y$ and consider this as a binary operation on $X$. For example addition of integers is such an operation. Then we say that $*$ is/has 
+\begin{itemize}
+    \item Associative, if $x * (y * z) = (x * y) * z$
+    \item Commutative, if $x * y = y * x$
+    \item Neutral element, if there exists $e \in X$ (a neutral element), s.t. $x * e = e * x = x$
+    \item Inverse elements, if for all $x \in X$ there exists $x' \in X$ called an inverse of $x$, s.t. $x * x' = x' * x = e$ where $e$ is a neutral element.
+\end{itemize}
+
+\noindent\textbf{Definition:} $(X,*)$ is called a 
+\begin{itemize}
+    \item Semigroup, if $*$ is associative,
+    \item Monoid, if $(X,*)$ is a semigroup and has a neutral element,
+    \item Group, if $(X,*)$ is a monoid and every element $x \in X$ has an inverse.
+\end{itemize}
+
+\noindent\textbf{Theorem:} In a group $(X,*)$ the neutral element $e \in X$ and inverse $x'$ for any fixed $x \in X$ are unique.
+
+\end{document}
