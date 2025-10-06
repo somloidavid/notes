@@ -2,7 +2,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\usepackage[margin=1in]{geometry}
 
 \setcounter{tocdepth}{2}
 
@@ -18,95 +20,271 @@
 \newpage
 \section{Sets}
 
-\textbf{Definition:} A set is a collection of objects, called the elements or members of the set. 
-
+\textbf{Definition:} A set is a collection of objects, called the \emph{elements} or \emph{members} of the set.  
 We write $x \in X$ if $x$ is an element of the set $X$ and $x \notin X$ if $x$ is not an element of $X$.
 
-Two sets $X = Y$ if $x \in X$ iff $x \in Y$ (where ``iff'' and $\iff$ means ``if and only if'').
+Two sets $X = Y$, if
+\[
+x \in X \iff x \in Y
+\]
+(``iff'' or ``$\Leftrightarrow$'' both mean ``if and only if'').
 
-The empty set is denoted by $\emptyset$, that is the set without any elements. $X$ is nonempty if it has at least one element.
+The empty set is denoted by $\varnothing$, that is, the set without any elements.  
+$X$ is \emph{nonempty} if it has at least one element.
 
-We can define sets by listing its elements: $X = \{a, b, c, d\}$. 
+We can define sets by listing their elements:
+\[
+X = \{a, b, c, d\}.
+\]
 
-We can have infinite sets, for example:
-\begin{itemize}
-    \item The rational numbers: $\mathbb{Q} = \left\{\frac{p}{q} : p, q \in \mathbb{Z}, q \neq 0\right\}$
-\end{itemize}
+We can also have infinite sets, for example:
+\[
+\mathbb{N} = \{1, 2, 3, \dots\}, \quad
+\mathbb{N}_0 = \{0, 1, 2, 3, \dots\},
+\]
+\[
+\mathbb{Z} = \{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}, \quad
+\mathbb{Q} = \left\{ \tfrac{p}{q} : p, q \in \mathbb{Z}, \; q \neq 0 \right\},
+\]
+\[
+\mathbb{R} = \{\text{all numbers with decimal expansions}\}.
+\]
 
 \subsection{Subsets}
-$A$ is a subset of a set $X$ or $A$ is included in $X$, written $A \subseteq X$, if every element of $A$ belongs to $X$. $A$ is a proper subset of $X$, written as $A \subset X$, when $A \subseteq X$, but $A \ne X$. 
 
-\textbf{Definition:} The power set $P(X)$ of a set $X$ is the set of all subsets of $X$. 
+$A$ is a subset of a set $X$ or $A$ is included in $X$, written $A \subseteq X$, if every element of $A$ belongs to $X$. $A$ is a proper subset of $X$, written as $A \subset X$, when $A \subseteq X$, but $A \neq X$.
 
-\textbf{Example:} $X = \{1,2,3\}$, then 
-\begin{align*}
-P(X) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}
-\end{align*} The power set $P(X)$ of a set $X$ with $|X| = n$ elements has $|P(X)|= 2^n$ elements because, in defining a subset, we have two independent choices for each element. Thus, the notation $2^X = P(X)$ is also in use.
+\textbf{Def.:} The power set $\mathcal{P}$($X$) of a set $X$ is the set of all subsets of $X$.
 
-The Cartesian product $A x B$ of sets $A, B$ is the set whose members all possible ordered pairs $(a, b)$ with $a \in A$, $b \in B$, thus $A \times B = \{(a,b): a \in A, b \in B \}$ and $|A \times B|=|A||B|$.
+\textbf{Ex.:} $X=$\{1,2,3\}, then $\mathcal{P}$($X$)=\{$\varnothing$,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
+
+The power set $\mathcal{P}$($X$) of a set $X$ with |$X$|=$n$ elements has |$\mathcal{P}$($X$)|=$2^n$ elements because, in defining a subset, we have two independent choices for each element (does it belong to the subset or not?). Thus, the notation $2^X=\mathcal{P}(X)$ is also in use.
+
+\subsection{Set operations}
+
+The intersection $A\cap B$ of two sets $A$, $B$ is the set of all elements that belong to both $A$ and $B$. Two sets $A$, $B$ are said to be disjoint if $A\cap B = \varnothing $; that is, if $A$ and $B$ have no elements in common.
+
+The union $A \cup B$ is the set of all elements that belong to $A$ or $B$. Note that we always use ‘or’ in an inclusive sense, so that $x \in A \cup B$ if $x$ is an element of $A$ or $B$, or both $A$ and $B$. (Thus, $A \cap B \subseteq A \cup B$.)
+
+The set-difference of two sets $B$ and $A$ is the set of elements of $B$ that do not belong to $A$, that is $B \setminus A = \{x \in B:x \notin A\}$.
+If we consider sets that are subsets of a fixed set $X$ (called the universe) that is understood from the context, then we write $A^c = \overline{A} = X \setminus A$ to denote the complement of $A \subseteq X$ in $X$. Note that $(A^c)^c = A$.
+
+The Cartesian product $A \times B$ of sets $A$, $B$ is the set whose members all possible ordered pairs $(a, b)$ with $a\in A$, $b\in B$, thus $A\times B = \{(a,b):a\in A, b\in B \}$ and $|A\times B| = |A||B|$.
+
+\subsection{Algebraic properties}
+
+Intersection is a commutative operation $A\cap B = B \cap A$; and an \textit{associative} operation, that is:
+\[
+(A\cap B)\cap C = A \cap (B\cap C)\text{, thus} = A\cap B \cap C
+\]
+   both are also true for the union $A\cup B$.
+Intersection distributes over union and union distributes over intersection:
+\[
+A\cap (B\cup C) = (A\cap B)\cup (A\cap C)
+\]
+\[
+A\cup (B\cap C) = (A\cup B) \cap (A\cup C)
+\]
+We have De Morgan’s laws:
+\[
+(a\cup B)^c = A^c\cap B^c \text{ and } (A\cap B)^c = A^c\cup B^c
+\]
+Arbitrary many unions and intersections: Let $\mathcal{C}$ be a collection of sets. Then
+\[
+\bigcup\mathcal{C} = \bigcup_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for some} A \in \mathcal{C}\}
+\]
+\[
+\bigcap\mathcal{C} = \bigcap_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for some} A \in \mathcal{C}\}
+\]
 
 \subsection{Relations}
-Any subset of the Cartesian product of two sets $X, Y$ defines a (binary) relation $R \subseteq X \times Y$ between these two sets. Given $(x, y) \in R$ we may denote this inclusion simply as $xRy$. 
 
-\textbf{Notation:} $\forall$ means 'for all', $\exists$ means 'exists'.
-\begin{itemize}
-    \item A binary relation $R$ is univalent if $\forall x \in X, \forall y \in Y, \forall z \in Y$, we have $((x, y) \in R$ and $(x, z) \in R) \Rightarrow y = z$.
-    \item A binary relation $R$ is total if $\forall x \in X, \exists y \in Y$ we have $(x, y) \in R$.
-\end{itemize}  
+Any subset of the Cartesian product of two sets $X$, $Y$ defines a (binary) relation $R \subseteq X \times Y $ between these two sets. Given $(x, y) \in R$ we may denote this inclusion simply as $xRy$. 
+   Notation: $\forall$ means ‘for all’, $\exists$ means ‘exists’.
+A binary relation $R$ is \textit{univalent} if
+\[
+\forall x \in X, \forall y \in Y, \forall z \in Y \text{ we have } (x, y)\in R
+\]
 
-\textbf{Definition:} A partially defined function is a univalent binary relation, and a function is a univalent and total binary relation. Thus a function $f: X \rightarrow Y$ is defined by a univalent and total $xRy \iff y = f(x)$. 
+A binary relation $R$ is \textit{total} if
+\[
+\forall x \in X, \exists y \in Y \text{ we have } (x,y) \in R
+\]
 
-The set of all functions from $X$ to $Y$ is commonly denoted as $Y^X = \prod_{x \in X} Y$.
+\textbf{Def.:} A partially defined function is a univalent binary relation, and a function is a univalent and total binary relation. Thus a function $f: X \mapsto Y$ is defined by a univalent and total $xRy\iff y = f(x)$.
+The set of all functions from $X$ to $Y$ is commonly denoted as 
+\[
+Y^X = \prod_{x\in X}Y
+\]
 
-\subsection{Orders And Equivalences}
-\textbf{Definition:}An order $\leqq$ on a set $X$ is a binary relation on $X$: s.t. for every $x, y, z \in X$: 
-\begin{itemize}
-    \item $x\leqq x$ (reflexivity)
-    \item $Ifx\leqq y$ and $y \leqq x$ then $x = y$ (antisymmetry)
-    \item $Ifx \leqq y$ and $y \leqq z$ then $x \leqq z$ (transitivity)
-\end{itemize} 
-An order is linear or total if $\forall x, y \in X$ either $x \leqq y$ or $y \leqq x$. If $\leqq$ is an order, then we define a strict order by $x < y$ if $x \leqq y$ and $x \neq y$. If for a relation $~$ in 2. instead of antisymmetry we have symmetry: 2. If $x \sim y$ then $y \sim x$ then $\sim$ is called an equivalence relation.
+\subsection{Orders and equivalences}
 
-\subsection{Functions}
-\textbf{Definition:} Per definition a function $f: X \rightarrow Y$ is a univalent and total relation, that is for every $x \in X$ there is a unique $y = f(x) \in Y$. $Do(f) = X$ is called the domain of $f$, and $Ran(f) = {y \in Y: \exists x \in X, y = f (x)} \subseteq Y$ is called the range of $f$. Also $f(A) = {y \in Y: \exists x \in A, y = f(x)}$ for some $A \subseteq X$.
+\textbf{Def.:} An order $\leq$ on a set $X$ is a binary relation on $X$, s.t. for every $x, y, z \in X$:
+\begin{enumerate}
+    \item $x \leq x$ (reflexivity),
+    \item If $x \leq y$ and $y \leq x$ then $x=y$ (antisymmetry),
+    \item If $x \leq y$ and $y\leq z$ then $x\leq z$ (transitivity).
+\end{enumerate}
 
-The identity function $id_X: X \rightarrow X$ on a set $X$ is the function that maps every element of $X$ to itself, that is $id_X (x) = x$ for all $x \in X$.
 
-The characteristic or indicator function $\chi_A: X \rightarrow \{0,1\}$ of $A \subseteq X$ is defined as $\chi_A(x) = \begin{cases}
-1 & \text{if } x \in A \\
-0 & \text{if } x \notin A
-\end{cases}$.
+An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < z$ if $x\leq y$ and $x\neq y$.
 
-The graph of a function $f: X \rightarrow Y$ is defined as $G_f = \{(x,y) \in X \times Y:y=f(x)\}$.
+If for a relation $\sim$ in 2. instead of antisymmetry we have \textit{symmetry}: 
+If $x\sim y$ then $y\sim x$
+then $\sim$ is called an equivalence relation.
 
-\subsubsection{Properties of a Function}
+\section{Functions}
 
-A function $f: X \rightarrow Y$ is 
-\begin{itemize}
-    \item injective (one-to-one) if it maps distinct elements to distinct elements, that is $x_1, x_2 \in X$ and $x_1 \neq x_2$ implies that $f(x_1) \neq f(x_2)$.
-    \item surjective (onto) if its range $Ran(f) = Y$, that is for every $y \in Y$ there exists an $x \in X$, s.t. $y = f(x)$.
-\end{itemize}
-If a function is both injective and surjective then its bijective.
-\\\\
-We define the composition $f \circ g(z)=f(g(z))$ of functions $f:Y \rightarrow X$ and $g:Z \rightarrow Y$. Note that we need the inclusion $Ran(g) \subseteq Do(f)$. $\circ$ is associative. A bijective function $f: X \rightarrow Y$ has an inverse $f^{-1}: Y \rightarrow X$ defined by $f^{-1}(y) =x$ if and only if $f(x) =y$ that is $f \circ f^{-1} = id_Y$ and $f^{-1} \circ f = id_X$. If $f: X \rightarrow Y$ is merely injective than still $f: X \rightarrow Ran(f)$ is bijective, thus invertible on its range with inverse $f^{-1}: Ran(f) \rightarrow X$.
+Per definition a function $f: X\mapsto Y$ is a univalent and total relation, that is for every $x\in X$ there is a unique $y = f(x)\in Y$. $Do(f) = X$ is called the \textit{domain} of $f$, and $Ran(f) = \{y \in Y: \exists x \in X, y = f(x)\}\subseteq Y$ is called the range of $f$. Also $f(A) = \{y\in Y:\exists x\in A, y = f(x)\}$ for some $A\subseteq X$.
 
-\subsubsection{Groups, Monoids, Fields}
+\textbf{Ex.:} The identity function $id_X:X$ on a set $X$ is the function that maps every element of $X$ to itself, that is $id_X(x) = x$ for all $x\in X$.
 
-\textbf{Definition:} Given a function $f: X \times X \rightarrow X$ we may denote $f(x,y) = x * y$ and consider this as a binary operation on $X$. For example addition of integers is such an operation. Then we say that $*$ is/has 
-\begin{itemize}
-    \item Associative, if $x * (y * z) = (x * y) * z$
-    \item Commutative, if $x * y = y * x$
-    \item Neutral element, if there exists $e \in X$ (a neutral element), s.t. $x * e = e * x = x$
-    \item Inverse elements, if for all $x \in X$ there exists $x' \in X$ called an inverse of $x$, s.t. $x * x' = x' * x = e$ where $e$ is a neutral element.
-\end{itemize}
+\textbf{Ex.:} the characteristic or indicator function $\chi_A:X\mapsto \{0, 1\}$ of $A\subseteq X$ is defined as 
+\[
+\chi_{A}(x) =
+\begin{cases}
+1, & x \in A,\\
+0, & x \notin A.
+\end{cases}
+\]
+The graph of a function $f: X\mapsto Y$ is defined as
+\[
+G_f= \{(x, y)\in X\times Y:y = f(x)\}
+\]
 
-\noindent\textbf{Definition:} $(X,*)$ is called a 
-\begin{itemize}
-    \item Semigroup, if $*$ is associative,
-    \item Monoid, if $(X,*)$ is a semigroup and has a neutral element,
-    \item Group, if $(X,*)$ is a monoid and every element $x \in X$ has an inverse.
-\end{itemize}
+\subsection{Properties of functions}
 
-\noindent\textbf{Theorem:} In a group $(X,*)$ the neutral element $e \in X$ and inverse $x'$ for any fixed $x \in X$ are unique.
+A function $f: X\mapsto Y$ is
+\begin{enumerate}
+    \item injective (one-to-one) if it maps distinct elements to distinct elements, that is $x_1, x_2\in X$ and $x_1\neq x_2$ implies that $f(x_1)\neq f(x_2)$,
+    \item surjective (onto) if its range $Ran(f)$ = Y, that is for every $y$ there exists an $x$, s.t. $y=f(x)$.
+    \item If a function is both injective and surjective then its bijective.
+\end{enumerate}
+
+We define the composition $f\circ g(z) = f(g(z))$ of functions $f: Y\mapsto X$ and $g: Z\mapsto Y$. Note that we need the inclusion $Ran(g)\subseteq Do(f)$. $\circ$ is associative.
+
+A bijective function $f: X\mapsto Y$ has an inverse $f^{-1}: Y\mapsto X$ defined by
+\[
+f^{-1}(y) = x \text{ if and only if } f(x) = y
+\]
+   that is $f\circ f^{-1} = id_Y$ and $f^{-1}\circ f = id_X$.
+   
+If $f: x\mapsto Y$ is merely injective than still $f: X\mapsto Ran(f)$ is bijective, thus invertible on its range with inverse $f^{-1}: Ran(f)\mapsto X$.
+
+\subsection{Groups, monoids, fields}
+
+\textbf{Def.:} Given a function $f: X\times X \mapsto X$ we may denote $f(x, y) = x * y$ and consider this as a binary operation on $X$. For example addition of integers is such an operation. The we say that * is/has
+
+\begin{enumerate}
+    \item Associative, if $x * (y * z) = (x * y) * z$,
+    \item Commutative, if $x * y = y * x$,
+    \item Neutral element, if there exists $e\in X$ (a neutral element), s.t. $x*e=e*x=x$,
+    \item Inverse elements, if for all $x\in X$ there exists $x'\in X$ called an inverse of $x$, s.t. $x*x'=x'*x =e$ where $e$ is a neutral element.
+\end{enumerate}
+
+\textbf{Def.:} $(X, *)$ is called a
+\begin{enumerate}
+    \item Semigroup, if * is associative,
+    \item Monoid, if $(X, *)$ is a semigroup and has a neutral element,
+    \item Group, if $(X, *)$ is a monoid and every element $x\in X$ has an inverse.
+\end{enumerate}
+
+\textbf{Theorem:} In a group $(X, *)$ the neutral element $e\in X$ and inverse $x'$ for any fixed $x\in X$ are unique.
+
+\textbf{Proof.:} Indeed, if there would be two neutral elements $e, e'$, then $e'=e*e'=e$. Also assuming $x*y=e=x*z$, implies $x'*(x*y)=x'*(x*z)$, that is $y=z=x'$.
+
+Let $(X, \cdot, +)$ be given with binary operations $\cdot$ and $+$.
+
+\textbf{Def.:} $(X, \cdot, +)$ is a field if
+\begin{enumerate}
+    \item $(X, \cdot, +)$ is a commutative group with neutral element 0,
+    \item $(X\setminus \{0\}, \cdot)$ is a commutative group,
+    \item $\cdot$ distributes over $+$ (distributivity), that is: $x\cdot (y+z) = x\cdot y + x\cdot z$.
+In this case $+$ is usually called addition and $\cdot$ multiplication.
+\end{enumerate}
+
+\textbf{Ex.:} the rational numbers $\mathbb{Q}$ is a field, moreover an ordered field $(\mathbb{Q}, \cdot, +, \leq)$ equipped with the total order $x\leq y\iff0\leq y-x$, where 0 is the neutral element of $+$.
+
+\textbf{Ex.:} the set of real numbers $\mathbb{R}$ is also a totally ordered field $(\mathbb{R}, \cdot, +, \leq)$
+
+\textbf{Axiom:} the $\leq$ order of $\mathbb{R}$ satisfies
+\begin{enumerate}[label=\Roman*.]
+  \item $x\leq y$ implies $x+z\leq y+z$,
+  \item $x< y$ and $z>0$ implies $xz<yz$.
+\end{enumerate}
+
+\subsection{Supremum and infimum}
+
+\textbf{Def.:} A set $A\subseteq \mathbb{R}$ is \textit{bounded} \textit{from above}, if $\exists M\in \mathbb{R}$ s.t.  $x\leq M$ for all $x\in A$; and it is \textit{bounded from below}, if $\exists m\in \mathbb{R}$ s.t.  $x\geq m$ for all $x\in A$. If both holds for $A$, then it is bounded.				(‘s.t.’ is short hand for ‘such that’)
+
+\textbf{Def.:} If $M\in \mathbb{R}$ is an upper bound of $A\subseteq \mathbb{R}$ s.t. for any other upper bound $M'\in \mathbb{R}$ of $A$ we have $M\leq M'$, then $M$ is called the least upper bound of $A$, denoted as
+\[
+M=\sup A
+\]
+Similarly, the greatest lower bound of $A\subseteq \mathbb{R}$, if exists, is denoted by 
+\[
+m=\inf A
+\]
+  meaning $m\geq m'$ for any lower bound $m$ of $A$.
+If $A=\{x_i: i\in I\}\subseteq \mathbb{R}$ for an index set $I$, we also write:
+\[
+\sup A=\sup_{i\in I}x_i \text{ and } \inf A = \inf_{i\in I}x_i
+\]
+
+\textbf{Fact:} by the definition supremum and infimum of a set, if they exist, are both unique and $A\geq \inf A$ for nonempty $A\subseteq \mathbb{R}$.
+
+\textbf{Def.:} if $\sup A\in A$, then we call it the maximum of $A$ denoted by $\max A$, similarly if $\inf A \in A$, then we call it the minimum of $A$ denoted by $\min A$.
+
+\textbf{Ex.:} Let $\mathbb{R}\supseteq A=\{{1\over n} : n\in \mathbb{N}\}$. Then $\sup A=1$ belongs to $A$, while $\inf A=§$ does not belong to $A$.
+
+\textbf{Def.:} let us introduce the elements $\infty$,$-\infty$, so that $\infty >x>-\infty$ for any $x\in \mathbb{R}$ and define the extended real numbers as $\overline{\mathbb{R}}=\{\infty, -\infty\}\cup \mathbb{R}$. If a set $A\subseteq \mathbb{R}$ is not bounded from above then define $\sup A=\infty$, and if $A\subseteq \mathbb{R}$ is not bounded from below then define $\inf A=-\infty$. Also define $\sup \emptyset=-\infty$ and $\inf \emptyset = \infty$.
+
+\subsection{(Order) Completeness}
+
+Consider $A=\{x\in \mathbb{Q}:x^2\leq 2\}$. This set is bounded from above but has no least upper bound in $\mathbb{Q}$.
+
+\textbf{Def(Completeness).:} a totally ordered field $Z$ is complete, if all nonempty upper bounded subsets of $Z$ have a least upper bound in $Z$. We call this the least upper bound property.
+
+\textbf{Theorem(Dedekind):} There exists a unique (up to $(\cdot, +,\leq)$-preserving transformation) ordered complete field satisfying the order axioms I., II. that contains $\mathbb{Q}$ and it is the field $\mathbb{R}$.
+Such a transformation $\phi:\mathbb{R}\mapsto \mathcal{M}$ satisfies $\phi(x+y)=\phi(x)+\phi(y), \phi(xy)=\phi(x)\phi(y), x\leq y \implies \phi(x)\leq \phi(y)$.
+
+
+\subsection{Archimedean property}
+
+\textbf{Theorem(Archimedean property):} If $x\in \mathbb{R}$, then there exists $n\in \mathbb{Z}$ such that $x<n$.
+
+\textbf{Proof:} Suppose, for contradiction, that there exists $x\in \mathbb{R}$ s.t. $x>n$ for all $n\in \mathbb{Z}$. Then $x$ is an upper bound of $\mathbb{Z\subseteq\mathbb{R}}$, so $M=\sup\mathbb{Z}\in\mathbb{R}$ exists. Since $n\leq M$ for all $n\in \mathbb{Z}$, we have $n-1\leq M-1$ for all $n\in \mathbb{Z}$, which implies $n\leq M-1$ for all $n\in \mathbb{Z}$. But then $M-1$ is an upper bound of $\mathbb{Z}$ that is strictly less than $M=\sup \mathbb{Z}$, a contradiction to $M=\sup \mathbb{Z}$ being the least upper bound.
+
+\textbf{Corollary:} For every $0<\epsilon\in \mathbb{R}$, there exists an $n\in \mathbb{N}$, s.t. $0<{1\over n}<\epsilon$.
+
+\textbf{Corollary(integer part):} If $x\in \mathbb{R}$, then there exists $[x]=n\in \mathbb{Z}$ called the integer part of $x$, such that $n\leq x<n+1$.
+
+
+\subsection{Further properties}
+
+\textbf{Def(dense set).:} $A\subseteq \mathbb{R}$ is dense in $\mathbb{R}$, if for any $0<\epsilon, x\in \mathbb{R}$ there exists $a\in A$, s.t. $x-\epsilon<a<x+\epsilon$.
+
+\textbf{Theorem(density of rationals):} $\mathbb{Q\subseteq\mathbb{R}}$ is dense in $\mathbb{R}$.
+
+\textbf{Proof:} Let $0<\epsilon, x\in \mathbb{R}$. Then for any $n\in N$ we have 
+\[
+[nx]\leq nx<[nx] + 1
+\]
+which gives
+\[
+{[nx]\over n}\leq x <{[nx]\over n} + {1\over n}
+\]
+Pick $n\in \mathbb{N}$, s.t. $0<{1\over n}<\epsilon$. Then we have
+\[
+{[nx]\over n}\leq x <{[nx]\over n} +{1\over n}<{[nx]\over n} +\epsilon
+\]
+which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
+
+\subsection{Properties of sup and inf}
+
+
+
+\subsection{Intervals and topology of $\mathbb{R}$}
+
 
 \end{document}
