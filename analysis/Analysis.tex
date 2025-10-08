@@ -103,7 +103,7 @@ Any subset of the Cartesian product of two sets $X$, $Y$ defines a (binary) rela
    Notation: $\forall$ means ‘for all’, $\exists$ means ‘exists’.
 A binary relation $R$ is \textit{univalent} if
 \[
-\forall x \in X, \forall y \in Y, \forall z \in Y \text{ we have } (x, y)\in R
+\forall x \in X, \forall y \in Y, \forall z \in Y \text{ we have } ((x, y) \in R \text{ and } (x, z)\in R) \implies y = z
 \]
 
 A binary relation $R$ is \textit{total} if
@@ -127,7 +127,7 @@ Y^X = \prod_{x\in X}Y
 \end{enumerate}
 
 
-An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < z$ if $x\leq y$ and $x\neq y$.
+An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < y$ if $x\leq y$ and $x\neq y$.
 
 If for a relation $\sim$ in 2. instead of antisymmetry we have \textit{symmetry}: 
 If $x\sim y$ then $y\sim x$
