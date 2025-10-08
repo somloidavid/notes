@@ -6,7 +6,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[margin=1in]{geometry}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \begin{document}
 
@@ -284,7 +284,43 @@ which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
 
 
 
-\subsection{Intervals and topology of $\mathbb{R}$}
+\subsection{\texorpdfstring{Intervals and topology of $\mathbb{R}$}{Intervals and topology of R}}
+
+\section{The absolute value}
+
+\textbf{Def}.: the absolute value of $x \in \mathbb{R}$ is defined by 
+$\begin{cases}
+x \text{ if } x \geq 0,\\
+-x \text{ if } x < 0.
+\end{cases}.$
+\textbf{Proposition}: $\forall x, y \in \mathbb{R}$ we have 
+\begin{enumerate}
+    \item $|x| \geq 0$ and $|x| = 0 \iff x = 0$,
+    \item $|-x| = |x|$,
+    \item (triangle inequality) $|x + y| \leq |x| + |y|$,
+    \item $|xy| = |x||y|$,
+    \item $||x| - |y|| \leq |x - y|$.
+\end{enumerate}
+
+\textbf{Proof}: 1.,2. and 4. are trivial. To see 3. suppose without loss of generality that $x \geq 0$, $|x| \geq |y|$, in which case $x + y \geq 0$. If $y \geq 0$, then $|x + y| = x + y = |x| + |y|$. If $y < 0$, then $|x + y| = x + y = |x| - |y| \leq |x| + |y|$. To obtain 5. we use 3. to get $|x| = |x - y + y| \leq |x - y| + |y|$.
+
+\section{Sequences and limits}
+\textbf{Def}.: a sequence $x_n$ of real numbers is an ordered list of numbers $x_n \in \mathbb{R}$, called the terms of the sequence, indexed by the natural numbers $n \in \mathbb{N}$. It may be regarded as a function $f: \mathbb{N} \to \mathbb{R}$ with $x_n = f(n)$.
+\\
+\\
+\textbf{Def}.: A sequence $(x_n)$ of real numbers converges to a limit $x \in \mathbb{R}$, written as $x = \lim_{n \to \infty} x_n$, or $x_n \to x$ as $n \to \infty$, if $\forall \epsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $|x_n - x| < \epsilon$.
+
+A sequence $(x_n)$ converges if it converges to a limit $x \in \mathbb{R}$, otherwise it diverges. Note that $x_n \to x$ and $|x_n - x| \to 0$ are equivalent statements.
+
+\textbf{Def}.: if $(x_n)$ is a sequence, then $\lim_{n \to \infty} x_n = \infty$, or $x_n \to \infty$ if $\forall M \in \mathbb{R}$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $x_n > M$. Similarly, we define $\lim_{n \to \infty} x_n = -\infty$, or $x_n \to -\infty$ if $\forall M \in \mathbb{R}$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $x_n < M$.
 
 
+\subsection{Properties of limits}
+\subsection{Monotone sequences}
+\subsection{\texorpdfstring{$\lim sup x_n$ and $\lim inf x_{n}$}{lim sup xn and lim inf xn}}
+\subsection{Cauchy sequences}
+\subsection{Subsequences}
+\subsection{Bolzano-Weierstrass theorem}
+\section{Binomial theorem}
+    
 \end{document}
