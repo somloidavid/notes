@@ -323,4 +323,98 @@ which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
     \item an accumulation point of $A$, if for every $0<\epsilon \in \mathbb{R}$ the interval $(x-\epsilon, x+\epsilon)$ contains a point in $A$ distinct from $x$. 
 \end{enumerate}
 
+\section{Series}
+\subsection{Series}
+
+\textbf{Def(Convergence of a series).:} Let $(a_n)$ be a sequence of real numbers. The series
+\[
+\sum^{\infty}_{n=1}{a_n}
+\]
+converges to a sum $s\in \mathbb{R}$ if the sequence $(s_n)$ of partial sums
+\[
+s_k=\sum_{n=1}^{k}{a_n}
+\]
+converges to $s$ as $k\mapsto \infty$. Otherwise, the series diverges. If a series 
+converges to $s$, we write 
+\[
+s=\sum_{n=1}^{\infty}{a_n}
+\]
+We also say a series diverges to $\pm \infty$ if its sequence of partial sums does.
+
+\textbf{Proposition:} a series $\sum_{n=1}^{\infty}{a_n}$  with $a_n\geq 0$ converges iff $\exists M\geq 0$ s.t.
+\[
+s_k=\sum_{n=1}^{k}{a_n}\leq M
+\]
+for all $k\in \mathbb{N}$, that is $\{s_k\}_{k\in \mathbb{N}}$ is bounded from above; otherwise it 
+diverges to $\infty$.
+
+\textbf{Proof:} $a_n\geq 0$ implies that $(s_k)$ is monotone increasing, so by the Monotone Convergence Theorem its limit exists and is equal to $\sup \{s_k:l\in \mathbb{N}\}$.
+
+\textbf{Theorem(Cauchy condition):} $\sum_{n=1}^{\infty}{a_n}$ converges iff $\forall \epsilon>0$ there exist $N\in \mathbb{N}$ s.t. $|\sum_{n=m+1}^{k}{a_n}| < \epsilon$ for all $m,k>N$.
+
+\textbf{Proof:} $(s_k)$ converges iff $(s_k)$ is Cauchy, that is: $\forall \epsilon > 0$ there exist $N\in \mathbb{N}$ s.t. $|s_k-s_m|<\epsilon$ for all $m,k>N$ where $|s_k-s_m|=|\sum_{n=m+1}^{k}{a_n}|$.
+
+\subsection{Basic conditions for convergence}
+
+\textbf{Proposition:} if $\sum_{n=1}^{\infty}{a_n}$ converges, then $\lim_{n\to \infty}a_n=0$.
+
+\textbf{Proof:} the series converges iff $(s_k)$ is Cauchy, so taking $m=k-1$ in the Cauchy condition we obtain that $|a_k|<\epsilon$ for all $k>N$, thus $a_k\to 0$.
+
+\textbf{Note:} the converse of the above is not true! We will see soon that $a_n/to 0$ generally does not imply that $\sum_{n=1}^{\infty}{a_n}$ converges.
+
+\subsection{Absolutely convergent series}
+
+\textbf{Def(Absolute Convergence of a series).:} The series $\sum_{n=1}^{\infty}{a_n}$  converges absolutely if $\sum_{n=1}^{\infty}{|a_n|}$ converges, and $\sum_{n=1}^{\infty}{a_n}$ converges conditionally if $\sum_{n=1}^{\infty}{a_n}$ converges, but $\sum_{n=1}^{\infty}{|a_n|}$ diverges.
+
+\textbf{Proposition:} if $\sum_{n=1}^{\infty}{a_n}$ converges absolutely, then $\sum_{n=1}^{\infty}{a_n}$ converges.
+
+\textbf{Proof:} $\sum_{n=1}^{\infty}{|a_n|}$ is convergent, so $s_k=\sum_{n=1}^{k}{|a_n|}$ is Cauchy, which implies that $|\sum_{n=1}^{k}{a_n}|$ is also Cauchy by $|\sum_{n=m+1}^{k}{a_n}| \leq \sum_{n=m+1}^{k}{|a_n|}$, so the sequence of partial sums of $\sum_{n=1}^{\infty}{a_n}$ is Cauchy.
+
+\subsection{Alternating series}
+
+\textbf{Def(Alternating series).:} A series $\sum_{n=1}^{\infty}{a_n}$  is alternating if $a_na_{n+1} < 0$, that is, successive terms of $(a_n)$ have opposite signs.
+
+\textbf{Theorem(Alternating series test):} Suppose that $(a_n)$ is a monotone decreasing sequence with $a_n\geq 0$ and also $\lim{n\to \infty}a_n=0$. Then the alternating sequence $\sum_{n=1}^{\infty}{(-1)^{n}a_n}$ converges.
+
+\textbf{Proof:} $|\sum_{n=m+1}^{k}{(-1)^{n}a_n}|\leq a_{m+1}$ because $a_n\geq a_{n+1}\geq 0$, so $\lim{m\to \infty}a_{m+1}=0$ implies that the partial sums form a Cauchy sequence.
+
+\textbf{Ex.:} $\sum_{n=1}^{\infty}{(-1)^{n}{1\over n}}$ converges.
+
+\subsection{Rearrangement of a series}
+
+\textbf{Def(rearrangement).:} A series $\sum_{n=1}^{\infty}{b_n}$ is a rearrangement of $\sum_{n=1}^{\infty}{a_n}$ if there is a bijective function $f:\mathbb{N}\mapsto \mathbb{N}$ s.t. $b_n=a_{f(n)}$.
+
+\textbf{Theorem:} if a series is absolutely convergent, then every rearrangement of the series converges to the same sum.
+
+\textbf{Proof:} First suppose that $a_n\geq 0$ and let $\sum_{n=1}^{\infty}{b_n}$  with $b_n=a_{f(n)}$ be a rearrangement. Given $\epsilon > 0$ there exist $n\in \mathbb{N}$ s.t. $0\leq \sum_{n=1}^{\infty}{a_n} - \sum_{n=1}^{N}{a_n}<\epsilon$. Since $f:\mathbb{N} \mapsto \mathbb{N}$ is bijective, there exists $M\in \mathbb{N}$ s.t. $\{1,2,...,N\}\subseteq f^{-1}(\{1,2,...,M\})$ meaning that $a_1, a_2, ..., a_N$ are all included among the $b_1, b_2, ..., b_M$. If $m>M$, then $\sum_{n=1}^{N}{a_n}\leq \sum_{n=1}^{m}{b_n}\leq \sum_{n=1}^{\infty}{a_n}$ and it follows that $0\leq \sum_{n=1}^{\infty}{a_n}-\sum_{n=1}^{m}{b_n}<\epsilon $, which proves the assertion.
+
+The general case of the assertion follows from separating $\sum_{n=1}^{\infty}{a_n}$ into two sums of its positive and negative terms which are separately convergent because of absolute convergence of $\sum_{n=1}^{\infty}{a_n}$. Then any rearrangement splits into the rearrangements of the sums of the negative and positive terms of $\sum_{n=1}^{\infty}{a_n}$, so separately converge to the sums of the negative and positive terms of $\sum_{n=1}^{\infty}{a_n}$.
+
+\textbf{Theorem:} if a series $\sum_{n=1}^{\infty}{a_n}$ is conditionally convergent, then it has rearrangements that converge to an arbitrary real number and rearrangements that diverge to $\infty$ or $-\infty$.
+
+\textbf{Proof:} Since $\sum_{n=1}^{\infty}{a_n}$ is convergent, therefore $a_n\to 0$. Since $\sum_{n=1}^{\infty}{a_n}$ is only conditionally convergent, therefore the sums of its negative and positive parts are both divergent, otherwise the whole series would diverge if only one of them converged. This means that we can make sums of successive positive or negative terms in the series as large as we wish:
+
+Let $s\in \mathbb{R}$. Starting from the beginning of the series, we choose successive positive or zero terms in the series until their partial sum is greater than or equal to $s$. Then we choose successive strictly negative terms, starting again from the beginning of the series, until the partial sum of all the terms is strictly less than $s$. After that, we choose successive positive or zero terms until the partial sum is greater than or equal $s$, followed by negative terms until the partial sum is strictly less than $s$, and so on. The partial sums are greater than $s$ by at most the value of the last positive term retained, and are less than $s$ by at most the value of the last negative term retained. Since $a_n\to 0$, it follows that the rearranged series converges to $s$. 
+
+A similar argument shows that we can rearrange a conditional convergent series to diverge to $\infty$ or $-\infty$, and that we can rearrange the series so that it diverges in a finite or infinite oscillatory fashion.
+
+\subsection{Comparison tests}
+
+\textbf{Theorem(Comparison test):} Suppose that $b_n\geq 0$ and $\sum_{n=1}^{\infty}{b_n}$ converges. If $|a_n|\leq b_n$, then $\sum_{n=1}^{\infty}{a_n}$ converges absolutely. 
+On the other hand, if $b_n\geq c_n \geq 0$ and $\sum_{n=1}^{\infty}{c_n}$ diverges, then $\sum_{n=1}^{\infty}{b_n}$ diverges as well.
+
+\textbf{Proof:} $(\sum_{n=1}^{k}{b_n})_k$ is Cauchy, therefore $\sum_{n=m+1}^{k}{|a_n|}\leq \sum_{n=m+1}^{k}{b_n}$ implies that $(\sum_{n=1}^{k}{|a_n|})$ is Cauchy too. 
+Similarly, $(\sum_{n=1}^{k}{c_n})_k$ is not Cauchy, therefore $\sum_{n=m+1}^{k}{c_n}\leq \sum_{n=m+1}^{k}{b_n}$ implies that $(\sum_{n=1}^{k}{b_n})_k$ is not Cauchy either, thus $\sum_{n=1}^{\infty}{b_n}$ diverges.
+
+\textbf{Theorem(Limit Comparison test):} Suppose that we have two series $\sum_{n=1}^{\infty}{a_n}$ and $\sum_{n=1}^{\infty}{b_n}$ with $a_n\geq 0, b_n > 0$. If $\lim{n\to \infty}{a_n\over a_b}=c$ exists with $0<c<\infty$, then either both series converge or both diverge.
+
+\textbf{Proof:} Given $\epsilon > 0$ there exist $N\in \mathbb{N}$ s.t. for all $n>N$ we have $x-\epsilon <{a_n\over b_n} < c + \epsilon$ implying $(c-\epsilon)b_n<a_n<(c+\epsilon)b_n$. By choosing $\epsilon>0$ sufficiently small we can assume that $c-\epsilon >0$. Then $(c-\epsilon)b_n<a_n<(c+\epsilon)b_n$ implies using the previous result that either both $(\sum_{n=1}^{k}{b_n})_k$ and $(\sum_{n=1}^{k}{a_n})$ are Cauchy or both of them are not Cauchy.
+
+
+\subsection{Cauchy condensation test}
+\subsection{Geometric series}
+\subsection{Ratio test}
+\subsection{Root test}
+
+
 \end{document}
