@@ -411,10 +411,165 @@ Similarly, $(\sum_{n=1}^{k}{c_n})_k$ is not Cauchy, therefore $\sum_{n=m+1}^{k}{
 \textbf{Proof:} Given $\epsilon > 0$ there exist $N\in \mathbb{N}$ s.t. for all $n>N$ we have $x-\epsilon <{a_n\over b_n} < c + \epsilon$ implying $(c-\epsilon)b_n<a_n<(c+\epsilon)b_n$. By choosing $\epsilon>0$ sufficiently small we can assume that $c-\epsilon >0$. Then $(c-\epsilon)b_n<a_n<(c+\epsilon)b_n$ implies using the previous result that either both $(\sum_{n=1}^{k}{b_n})_k$ and $(\sum_{n=1}^{k}{a_n})$ are Cauchy or both of them are not Cauchy.
 
 \subsection{Cauchy condensation test}
+\textbf{Theorem (Cauchy Condensation Test).}
+For a monotone decreasing sequence \( a_n \ge 0 \), the series 
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+
+converges (or diverges) if and only if the “condensed” series
+\[
+\sum_{n=0}^{\infty} 2^n a_{2^n}
+\]
+
+converges (or diverges).
+
+\textbf{Proof.}
+
+The result follows from the claim:
+\[
+\sum_{n=1}^{\infty} a_n 
+\le 
+\sum_{n=0}^{\infty} 2^n a_{2^n}
+\le 
+2\sum_{n=1}^{\infty} a_n.
+\]
+
+\textit{Proof of the claim:}
+Since \( a_n \ge a_{n+1} \), we can group the terms as follows:
+\[
+\sum_{n=1}^{\infty} a_n 
+= a_1 + (a_2 + a_3) + (a_4 + a_5 + a_6 + a_7) + \cdots
+\]
+and since each term is decreasing,
+\[
+\le a_1 + (a_2 + a_2) + (a_4 + a_4 + a_4 + a_4) + \cdots
+= a_1 + 2a_2 + 4a_4 + \cdots
+= \sum_{n=0}^{\infty} 2^n a_{2^n}.
+\]
+
+On the other hand,
+\[
+\sum_{n=0}^{\infty} 2^n a_{2^n}
+= (a_1 + a_2) + (a_2 + a_4 + a_4 + a_4) + \cdots
+\le (a_1 + a_1) + (a_2 + a_2) + (a_3 + a_3) + \cdots
+= 2\sum_{n=1}^{\infty} a_n.
+\]
+Hence the inequalities hold, proving the claim.
+
+
+\textbf{Example.}
+
+Consider the harmonic series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n}.
+\]
+The corresponding condensed series is
+\[
+\sum_{n=0}^{\infty} 2^n \cdot \frac{1}{2^n} = \sum_{n=0}^{\infty} 1,
+\]
+which diverges. Therefore, by the Cauchy condensation test, the harmonic series diverges.
 
 \subsection{Geometric series}
+
+Because $\sum_{n=0}^{k}{x^n}={1-x^{k+1}\over 1-x}$ we have
+
+\textbf{Theorem:} $\sum_{n=0}^{k}{x^n}$ converges if $|x|<1$ and diverges if $|x|\geq 1$.
+
+\textbf{Proof:} If $|x|<1$, then $x^k\to 0$, otherwise ${1-x^{k+1}\over 1-x}$ is not Cauchy.
+
 \subsection{Ratio test}
+
+
+\textbf{Theorem (Ratio Test).}
+Suppose that \( a_n \neq 0 \) and let
+\[
+r = \limsup_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|.
+\]
+Then the series
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+converges absolutely if \( 0 \le r < 1 \), and diverges if \( 1 < r \le \infty \).
+
+\textbf{Proof.}
+
+If \( r < 1 \), choose \( r < s < 1 \).  
+Then there exists \( N \in \mathbb{N} \) such that
+\[
+\left| \frac{a_{n+1}}{a_n} \right| < s \quad \text{for all } n > N.
+\]
+It follows that there exists \( M > 0 \) such that
+\[
+|a_n| \le M s^n \quad \text{for all } n > N.
+\]
+Therefore,
+\[
+\sum_{n=m+1}^{k} |a_n| \le \sum_{n=m+1}^{k} M s^n,
+\]
+which implies that \( \left( \sum_{n=1}^{k} |a_n| \right)_k \) is a Cauchy sequence,  
+because the geometric series \( M \sum_{n=0}^{\infty} s^n \) converges.
+
+Similarly, when \( r > 1 \), choose \( r > s > 1 \).  
+Then there exists \( N \in \mathbb{N} \) such that
+\[
+\left| \frac{a_{n+1}}{a_n} \right| > s \quad \text{for all } n > N,
+\]
+so that
+\[
+|a_n| \ge M s^n.
+\]
+It follows that \( a_n \) does not tend to 0,  
+so the series \( \sum_{n=1}^{\infty} a_n \) diverges.
+
+When \( r = 1 \), the test is inconclusive.
+
+
 \subsection{Root test}
+
+\textbf{Theorem (Root Test).}
+
+Suppose that \( a_n \in \mathbb{R} \) and let
+\[
+r = \limsup_{n \to \infty} |a_n|^{1/n}.
+\]
+Then the series
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+converges absolutely if \( 0 \le r < 1 \), and diverges if \( 1 < r \le \infty \).
+
+\textbf{Proof.}
+
+If \( r < 1 \), choose \( r < s < 1 \).  
+Then there exists \( N \in \mathbb{N} \) such that
+\[
+|a_n|^{1/n} < s \quad \text{for all } n > N.
+\]
+It follows that
+\[
+|a_n| < s^n \quad \text{for all } n > N.
+\]
+Therefore,
+\[
+\sum_{n=m+1}^{k} |a_n| \le \sum_{n=m+1}^{k} s^n,
+\]
+which implies that \( \left( \sum_{n=1}^{k} |a_n| \right)_k \) is Cauchy,  
+because the geometric series \( \sum_{n=0}^{\infty} s^n \) converges.
+
+Similarly, if \( r > 1 \), choose \( r > s > 1 \).  
+Then there exists \( N \in \mathbb{N} \) such that
+\[
+|a_n|^{1/n} > s \quad \text{for all } n > N,
+\]
+so that
+\[
+|a_n| > s^n.
+\]
+It follows that \( a_n \) does not tend to 0,  
+so the series \( \sum_{n=1}^{\infty} a_n \) diverges.
+
+When \( r = 1 \), the test is inconclusive.
 
 
 \end{document}
