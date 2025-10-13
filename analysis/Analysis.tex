@@ -93,10 +93,10 @@ We have De Morgan’s laws:
 \]
 Arbitrary many unions and intersections: Let $\mathcal{C}$ be a collection of sets. Then
 \[
-\bigcup\mathcal{C} = \bigcup_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for some} A \in \mathcal{C}\}
+\bigcup\mathcal{C} = \bigcup_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for some } A \in \mathcal{C}\}
 \]
 \[
-\bigcap\mathcal{C} = \bigcap_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for some} A \in \mathcal{C}\}
+\bigcap\mathcal{C} = \bigcap_{A\in  \mathcal{C}}A = \{x: x \in A\text{, for all } A \in \mathcal{C}\}
 \]
 
 \subsection{Relations}
@@ -105,7 +105,7 @@ Any subset of the Cartesian product of two sets $X$, $Y$ defines a (binary) rela
    Notation: $\forall$ means ‘for all’, $\exists$ means ‘exists’.
 A binary relation $R$ is \textit{univalent} if
 \[
-\forall x \in X, \forall y \in Y, \forall z \in Y \text{ we have } (x, y)\in R
+\forall x \in X, \forall y \in Y, \forall z \in Y \text{ we have } ((x, y) \in R \text{ and } (x, z)\in R) \implies y = z
 \]
 
 A binary relation $R$ is \textit{total} if
@@ -131,7 +131,7 @@ Y^X = \prod_{x\in X}Y
 \end{enumerate}
 \end{itemize}
 
-An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < z$ if $x\leq y$ and $x\neq y$.
+An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < y$ if $x\leq y$ and $x\neq y$.
 
 If for a relation $\sim$ in 2. instead of antisymmetry we have \textit{symmetry}: 
 If $x\sim y$ then $y\sim x$
@@ -239,11 +239,11 @@ If $A=\{x_i: i\in I\}\subseteq \mathbb{R}$ for an index set $I$, we also write:
 \sup A=\sup_{i\in I}x_i \text{ and } \inf A = \inf_{i\in I}x_i
 \]
 
-\item \textbf{Fact:} by the definition supremum and infimum of a set, if they exist, are both unique and $A\geq \inf A$ for nonempty $A\subseteq \mathbb{R}$.
+\textbf{Fact:} by the definition supremum and infimum of a set, if they exist, are both unique and $\sup A\geq \inf A$ for nonempty $A\subseteq \mathbb{R}$.
 
 \item \textbf{Def.:} if $\sup A\in A$, then we call it the maximum of $A$ denoted by $\max A$, similarly if $\inf A \in A$, then we call it the minimum of $A$ denoted by $\min A$.
 
-\item \textbf{Ex.:} Let $\mathbb{R}\supseteq A=\{{1\over n} : n\in \mathbb{N}\}$. Then $\sup A=1$ belongs to $A$, while $\inf A=0$ does not belong to $A$.
+\textbf{Ex.:} Let $\mathbb{R}\supseteq A=\{{1\over n} : n\in \mathbb{N}\}$. Then $\sup A=1$ belongs to $A$, while $\inf A=0$ does not belong to $A$.
 
 \item \textbf{Def.:} let us introduce the elements $\infty$,$-\infty$, so that $\infty >x>-\infty$ for any $x\in \mathbb{R}$ and define the extended real numbers as $\overline{\mathbb{R}}=\{\infty, -\infty\}\cup \mathbb{R}$. If a set $A\subseteq \mathbb{R}$ is not bounded from above then define $\sup A=\infty$, and if $A\subseteq \mathbb{R}$ is not bounded from below then define $\inf A=-\infty$. Also define $\sup \emptyset=-\infty$ and $\inf \emptyset = \infty$.
 \end{itemize}
@@ -278,7 +278,7 @@ Such a transformation $\phi:\mathbb{R}\mapsto \mathcal{M}$ satisfies $\phi(x+y)=
 
 \item \textbf{Theorem(density of rationals):} $\mathbb{Q\subseteq\mathbb{R}}$ is dense in $\mathbb{R}$.
 
-\item \textbf{Proof:} Let $0<\varepsilon, x\in \mathbb{R}$. Then for any $n\in N$ we have 
+\item \textbf{Proof:} Let $0<\varepsilon, x\in \mathbb{R}$. Then for any $n\in \mathbb{N}$ we have 
 \[
 [nx]\leq nx<[nx] + 1
 \]
@@ -295,8 +295,46 @@ which implies $x-\varepsilon<{[nx]\over n} <x+\varepsilon$ as wanted.
 
 \subsection{Properties of sup and inf}
 
+\textbf{Theorem:} 
+\begin{enumerate}
+    \item Given $A\in \mathbb{R}$, then $M=\sup A$ if and only if
+    \begin{enumerate}
+        \item $M$ is an upper bound of $A$, 
+        \item for every $M' < M$ there exists $x\in A$ s.t. $M'<x$.
+    \end{enumerate}
+    \item If $A\subseteq B\subseteq \mathbb{R}$, then $\sup A\leq \sup B$ and $\inf B\leq \inf A$.
+    \item If $A\subseteq \mathbb{R}$, then $\inf A\leq \sup A$.
+    \item If $A\subseteq \mathbb{R}$, then $-\inf A = \sup (-A)$.
+    \item If $A\subseteq \mathbb{R} \ni \alpha\geq 0$, then $\sup (\alpha A)=\alpha\sup (A)$.
+    \item If $A, B \subseteq \mathbb{R}$, we have $\sup (A+B)\leq \sup A + \sup B$, $\inf (A+B)\geq \inf A+\inf B$ where $A+B=\{x\in \mathbb{R}:x=a+b, a\in A, b\in B\}$.
+    \item Let $\mathcal{C}$ be a family of sets in $\mathbb{R}$, then $\sup (\cup \mathcal{C}) = \sup \{\sup A:A\in \mathcal{C}\}$.
+\end{enumerate}
 
 \subsection{\texorpdfstring{Intervals and topology of $\mathbb{R}$}{Intervals and topology of R}}
+
+\textbf{Def.:} Let $a, b \in \mathbb{R}$.
+\begin{enumerate}
+    \item Closed interval $[a, b]=\{x\in \mathbb{R}:a\leq x\leq b\}$,
+    \item Open interval $(a, b)=\{x\in \mathbb{R}:a<x<b\}$,
+    \item Half-open intervals $(a, b\text{]}=\{x\in \mathbb{R}:a<x\leq b\}, \text{[}a, b)=\{x\in \mathbb{R}:a\leq x < b\}$
+    \item $\text{[}a, \infty)=\{x\in \mathbb{R}:a\leq x\}, (a, \infty)=\{x\in \mathbb{R}:a<x\}, (-\infty, b\text{]}=\{x\inf \mathbb{R}:b\geq x\}, (-\infty, b)=\{x\in \mathbb{R}:b>x\}$
+\end{enumerate}
+
+\textbf{Def.:} $A\subseteq \mathbb{R}$ is open if for every $x\in A$ there exists $0<\epsilon \in \mathbb{R}$ s.t. $(x-\epsilon, x+\epsilon)\subseteq A$.
+
+\textbf{Def.:} $B\subseteq \mathbb{R}$ is closed if $B^C=\{x\in \mathbb{R}:x\notin B\}$ is open.
+
+\textbf{Def.:} $U\subseteq \mathbb{R}$ is a neighborhood of $z\in \mathbb{R}$, if there exists $0<\epsilon \in \mathbb{R}$ s.t. $(z-\epsilon, z+\epsilon)\subseteq U$.
+
+\textbf{Theorem:} Arbitrary union of open sets is open, and an intersection of finite number of open sets is open.
+
+\textbf{Def.:} Let $A\subseteq \mathbb{R}$, then $x\in \mathbb{R}$ is
+\begin{enumerate}
+    \item an interior point of $a$, if there exists $0<\epsilon \in \mathbb{R}$ s.t. $(x-\epsilon, x+\epsilon)\subseteq A$;
+    \item an isolated point of $A$, if $x\in A$ and there exists $0<\epsilon \in \mathbb{R}$ s.t. $x$ is the only point of $A$ that belongs to $(x-\epsilon, x+\epsilon)$; 
+    \item a boundary point of $A$, if for every $0<\epsilon \in \mathbb{R}$ the interval $(x-\epsilon, x+\epsilon)$ contains at least a point in $A$ and at least a point not in $A$;
+    \item an accumulation point of $A$, if for every $0<\epsilon \in \mathbb{R}$ the interval $(x-\epsilon, x+\epsilon)$ contains a point in $A$ distinct from $x$. 
+\end{enumerate}
 
 \section{The absolute value}
 \begin{itemize}
@@ -474,5 +512,4 @@ For the third statement $|x_n y_n - xy| = |(x_n - x)y_n + x(y_n - y)| \leq |x_n 
     and you count the number of times the term $x^k y^{n-k}$ occurs in the expansion. It is exactly how many ways $k$ objects can be chosen from among $n$ objects.
     \item \textbf{Corollary:} For $1 < x = 1 + \delta$ the binomial theorem implies that $x^n > 1 + n\delta$, thus $x^n \to \infty$. Similarly, when $1 > x > 0$ we have that $\frac{1}{x} > 1$, so $\frac{1}{x^n} \to \infty$ implies that $x^n \to 0$. When $-1 < x < 1$ these imply $x^n \to 0$.
 \end{itemize}
-
 \end{document}
