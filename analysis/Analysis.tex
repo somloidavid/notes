@@ -5,8 +5,9 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \begin{document}
 
@@ -19,8 +20,8 @@
 
 \newpage
 \section{Sets}
-
-\textbf{Definition:} A set is a collection of objects, called the \emph{elements} or \emph{members} of the set.  
+\begin{itemize}
+\item \textbf{Definition:} A set is a collection of objects, called the \emph{elements} or \emph{members} of the set.  
 We write $x \in X$ if $x$ is an element of the set $X$ and $x \notin X$ if $x$ is not an element of $X$.
 
 Two sets $X = Y$, if
@@ -49,16 +50,17 @@ We can also have infinite sets, for example:
 \[
 \mathbb{R} = \{\text{all numbers with decimal expansions}\}.
 \]
-
+\end{itemize}
 \subsection{Subsets}
 
 $A$ is a subset of a set $X$ or $A$ is included in $X$, written $A \subseteq X$, if every element of $A$ belongs to $X$. $A$ is a proper subset of $X$, written as $A \subset X$, when $A \subseteq X$, but $A \neq X$.
 
-\textbf{Def.:} The power set $\mathcal{P}$($X$) of a set $X$ is the set of all subsets of $X$.
+\begin{itemize}
+\item\textbf{Def.:} The power set $\mathcal{P}$($X$) of a set $X$ is the set of all subsets of $X$.
 
-\textbf{Ex.:} $X=$\{1,2,3\}, then $\mathcal{P}$($X$)=\{$\varnothing$,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
-
-The power set $\mathcal{P}$($X$) of a set $X$ with |$X$|=$n$ elements has |$\mathcal{P}$($X$)|=$2^n$ elements because, in defining a subset, we have two independent choices for each element (does it belong to the subset or not?). Thus, the notation $2^X=\mathcal{P}(X)$ is also in use.
+\item\textbf{Ex.:} $X=$\{1,2,3\}, then $\mathcal{P}$($X$)=\{$\varnothing$,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
+\end{itemize}
+The power set $\mathcal{P}(X)$ of a set $X$ with $|X|=n$ elements has $|\mathcal{P}(X)|=2^n$ elements because, in defining a subset, we have two independent choices for each element (does it belong to the subset or not?). Thus, the notation $2^X=\mathcal{P}(X)$ is also in use.
 
 \subsection{Set operations}
 
@@ -111,21 +113,23 @@ A binary relation $R$ is \textit{total} if
 \forall x \in X, \exists y \in Y \text{ we have } (x,y) \in R
 \]
 
-\textbf{Def.:} A partially defined function is a univalent binary relation, and a function is a univalent and total binary relation. Thus a function $f: X \mapsto Y$ is defined by a univalent and total $xRy\iff y = f(x)$.
+\begin{itemize}
+\item \textbf{Def.:} A partially defined function is a univalent binary relation, and a function is a univalent and total binary relation. Thus a function $f: X \mapsto Y$ is defined by a univalent and total $xRy\iff y = f(x)$.
+\end{itemize}
 The set of all functions from $X$ to $Y$ is commonly denoted as 
 \[
 Y^X = \prod_{x\in X}Y
 \]
 
 \subsection{Orders and equivalences}
-
-\textbf{Def.:} An order $\leq$ on a set $X$ is a binary relation on $X$, s.t. for every $x, y, z \in X$:
+\begin{itemize}
+\item \textbf{Def.:} An order $\leq$ on a set $X$ is a binary relation on $X$, s.t. for every $x, y, z \in X$:
 \begin{enumerate}
     \item $x \leq x$ (reflexivity),
     \item If $x \leq y$ and $y \leq x$ then $x=y$ (antisymmetry),
     \item If $x \leq y$ and $y\leq z$ then $x\leq z$ (transitivity).
 \end{enumerate}
-
+\end{itemize}
 
 An order is \textit{linear} or \textit{total} if $\forall x,y\in X$ either $x\leq y$ or $y\leq x$. If $\leq$ is an order, then we define a strict order by $x < y$ if $x\leq y$ and $x\neq y$.
 
@@ -137,9 +141,10 @@ then $\sim$ is called an equivalence relation.
 
 Per definition a function $f: X\mapsto Y$ is a univalent and total relation, that is for every $x\in X$ there is a unique $y = f(x)\in Y$. $Do(f) = X$ is called the \textit{domain} of $f$, and $Ran(f) = \{y \in Y: \exists x \in X, y = f(x)\}\subseteq Y$ is called the range of $f$. Also $f(A) = \{y\in Y:\exists x\in A, y = f(x)\}$ for some $A\subseteq X$.
 
-\textbf{Ex.:} The identity function $id_X:X$ on a set $X$ is the function that maps every element of $X$ to itself, that is $id_X(x) = x$ for all $x\in X$.
+\begin{itemize}
+\item \textbf{Ex.:} The identity function $id_X:X$ on a set $X$ is the function that maps every element of $X$ to itself, that is $id_X(x) = x$ for all $x\in X$.
 
-\textbf{Ex.:} the characteristic or indicator function $\chi_A:X\mapsto \{0, 1\}$ of $A\subseteq X$ is defined as 
+\item \textbf{Ex.:} the characteristic or indicator function $\chi_A:X\mapsto \{0, 1\}$ of $A\subseteq X$ is defined as
 \[
 \chi_{A}(x) =
 \begin{cases}
@@ -151,6 +156,7 @@ The graph of a function $f: X\mapsto Y$ is defined as
 \[
 G_f= \{(x, y)\in X\times Y:y = f(x)\}
 \]
+\end{itemize}
 
 \subsection{Properties of functions}
 
@@ -173,7 +179,8 @@ If $f: x\mapsto Y$ is merely injective than still $f: X\mapsto Ran(f)$ is biject
 
 \subsection{Groups, monoids, fields}
 
-\textbf{Def.:} Given a function $f: X\times X \mapsto X$ we may denote $f(x, y) = x * y$ and consider this as a binary operation on $X$. For example addition of integers is such an operation. The we say that * is/has
+\begin{itemize}
+\item \textbf{Def.:} Given a function $f: X\times X \mapsto X$ we may denote $f(x, y) = x * y$ and consider this as a binary operation on $X$. For example addition of integers is such an operation. The we say that * is/has
 
 \begin{enumerate}
     \item Associative, if $x * (y * z) = (x * y) * z$,
@@ -182,20 +189,20 @@ If $f: x\mapsto Y$ is merely injective than still $f: X\mapsto Ran(f)$ is biject
     \item Inverse elements, if for all $x\in X$ there exists $x'\in X$ called an inverse of $x$, s.t. $x*x'=x'*x =e$ where $e$ is a neutral element.
 \end{enumerate}
 
-\textbf{Def.:} $(X, *)$ is called a
+\item \textbf{Def.:} $(X, *)$ is called a
 \begin{enumerate}
     \item Semigroup, if * is associative,
     \item Monoid, if $(X, *)$ is a semigroup and has a neutral element,
     \item Group, if $(X, *)$ is a monoid and every element $x\in X$ has an inverse.
 \end{enumerate}
 
-\textbf{Theorem:} In a group $(X, *)$ the neutral element $e\in X$ and inverse $x'$ for any fixed $x\in X$ are unique.
+\item \textbf{Theorem:} In a group $(X, *)$ the neutral element $e\in X$ and inverse $x'$ for any fixed $x\in X$ are unique.
 
-\textbf{Proof.:} Indeed, if there would be two neutral elements $e, e'$, then $e'=e*e'=e$. Also assuming $x*y=e=x*z$, implies $x'*(x*y)=x'*(x*z)$, that is $y=z=x'$.
+\item \textbf{Proof.:} Indeed, if there would be two neutral elements $e, e'$, then $e'=e*e'=e$. Also assuming $x*y=e=x*z$, implies $x'*(x*y)=x'*(x*z)$, that is $y=z=x'$.
 
 Let $(X, \cdot, +)$ be given with binary operations $\cdot$ and $+$.
 
-\textbf{Def.:} $(X, \cdot, +)$ is a field if
+\item \textbf{Def.:} $(X, \cdot, +)$ is a field if
 \begin{enumerate}
     \item $(X, \cdot, +)$ is a commutative group with neutral element 0,
     \item $(X\setminus \{0\}, \cdot)$ is a commutative group,
@@ -203,21 +210,22 @@ Let $(X, \cdot, +)$ be given with binary operations $\cdot$ and $+$.
 In this case $+$ is usually called addition and $\cdot$ multiplication.
 \end{enumerate}
 
-\textbf{Ex.:} the rational numbers $\mathbb{Q}$ is a field, moreover an ordered field $(\mathbb{Q}, \cdot, +, \leq)$ equipped with the total order $x\leq y\iff0\leq y-x$, where 0 is the neutral element of $+$.
+\item \textbf{Ex.:} the rational numbers $\mathbb{Q}$ is a field, moreover an ordered field $(\mathbb{Q}, \cdot, +, \leq)$ equipped with the total order $x\leq y\iff0\leq y-x$, where 0 is the neutral element of $+$.
 
-\textbf{Ex.:} the set of real numbers $\mathbb{R}$ is also a totally ordered field $(\mathbb{R}, \cdot, +, \leq)$
+\item \textbf{Ex.:} the set of real numbers $\mathbb{R}$ is also a totally ordered field $(\mathbb{R}, \cdot, +, \leq)$
 
-\textbf{Axiom:} the $\leq$ order of $\mathbb{R}$ satisfies
+\item \textbf{Axiom:} the $\leq$ order of $\mathbb{R}$ satisfies
 \begin{enumerate}[label=\Roman*.]
   \item $x\leq y$ implies $x+z\leq y+z$,
   \item $x< y$ and $z>0$ implies $xz<yz$.
 \end{enumerate}
-
+\end{itemize}
 \subsection{Supremum and infimum}
 
-\textbf{Def.:} A set $A\subseteq \mathbb{R}$ is \textit{bounded} \textit{from above}, if $\exists M\in \mathbb{R}$ s.t.  $x\leq M$ for all $x\in A$; and it is \textit{bounded from below}, if $\exists m\in \mathbb{R}$ s.t.  $x\geq m$ for all $x\in A$. If both holds for $A$, then it is bounded.				(‘s.t.’ is short hand for ‘such that’)
+\begin{itemize}
+\item \textbf{Def.:} A set $A\subseteq \mathbb{R}$ is \textit{bounded} \textit{from above}, if $\exists M\in \mathbb{R}$ s.t.  $x\leq M$ for all $x\in A$; and it is \textit{bounded from below}, if $\exists m\in \mathbb{R}$ s.t.  $x\geq m$ for all $x\in A$. If both holds for $A$, then it is bounded.				(‘s.t.’ is short hand for ‘such that’)
 
-\textbf{Def.:} If $M\in \mathbb{R}$ is an upper bound of $A\subseteq \mathbb{R}$ s.t. for any other upper bound $M'\in \mathbb{R}$ of $A$ we have $M\leq M'$, then $M$ is called the least upper bound of $A$, denoted as
+\item \textbf{Def.:} If $M\in \mathbb{R}$ is an upper bound of $A\subseteq \mathbb{R}$ s.t. for any other upper bound $M'\in \mathbb{R}$ of $A$ we have $M\leq M'$, then $M$ is called the least upper bound of $A$, denoted as
 \[
 M=\sup A
 \]
@@ -233,40 +241,44 @@ If $A=\{x_i: i\in I\}\subseteq \mathbb{R}$ for an index set $I$, we also write:
 
 \textbf{Fact:} by the definition supremum and infimum of a set, if they exist, are both unique and $\sup A\geq \inf A$ for nonempty $A\subseteq \mathbb{R}$.
 
-\textbf{Def.:} if $\sup A\in A$, then we call it the maximum of $A$ denoted by $\max A$, similarly if $\inf A \in A$, then we call it the minimum of $A$ denoted by $\min A$.
+\item \textbf{Def.:} if $\sup A\in A$, then we call it the maximum of $A$ denoted by $\max A$, similarly if $\inf A \in A$, then we call it the minimum of $A$ denoted by $\min A$.
 
 \textbf{Ex.:} Let $\mathbb{R}\supseteq A=\{{1\over n} : n\in \mathbb{N}\}$. Then $\sup A=1$ belongs to $A$, while $\inf A=0$ does not belong to $A$.
 
-\textbf{Def.:} let us introduce the elements $\infty$,$-\infty$, so that $\infty >x>-\infty$ for any $x\in \mathbb{R}$ and define the extended real numbers as $\overline{\mathbb{R}}=\{\infty, -\infty\}\cup \mathbb{R}$. If a set $A\subseteq \mathbb{R}$ is not bounded from above then define $\sup A=\infty$, and if $A\subseteq \mathbb{R}$ is not bounded from below then define $\inf A=-\infty$. Also define $\sup \emptyset=-\infty$ and $\inf \emptyset = \infty$.
+\item \textbf{Def.:} let us introduce the elements $\infty$,$-\infty$, so that $\infty >x>-\infty$ for any $x\in \mathbb{R}$ and define the extended real numbers as $\overline{\mathbb{R}}=\{\infty, -\infty\}\cup \mathbb{R}$. If a set $A\subseteq \mathbb{R}$ is not bounded from above then define $\sup A=\infty$, and if $A\subseteq \mathbb{R}$ is not bounded from below then define $\inf A=-\infty$. Also define $\sup \emptyset=-\infty$ and $\inf \emptyset = \infty$.
+\end{itemize}
 
 \subsection{(Order) Completeness}
 
 Consider $A=\{x\in \mathbb{Q}:x^2\leq 2\}$. This set is bounded from above but has no least upper bound in $\mathbb{Q}$.
 
-\textbf{Def(Completeness).:} a totally ordered field $Z$ is complete, if all nonempty upper bounded subsets of $Z$ have a least upper bound in $Z$. We call this the least upper bound property.
+\begin{itemize}
+\item \textbf{Def(Completeness).:} a totally ordered field $Z$ is complete, if all nonempty upper bounded subsets of $Z$ have a least upper bound in $Z$. We call this the least upper bound property.
 
-\textbf{Theorem(Dedekind):} There exists a unique (up to $(\cdot, +,\leq)$-preserving transformation) ordered complete field satisfying the order axioms I., II. that contains $\mathbb{Q}$ and it is the field $\mathbb{R}$.
+\item \textbf{Theorem(Dedekind):} There exists a unique (up to $(\cdot, +,\leq)$-preserving transformation) ordered complete field satisfying the order axioms I., II. that contains $\mathbb{Q}$ and it is the field $\mathbb{R}$.
 Such a transformation $\phi:\mathbb{R}\mapsto \mathcal{M}$ satisfies $\phi(x+y)=\phi(x)+\phi(y), \phi(xy)=\phi(x)\phi(y), x\leq y \implies \phi(x)\leq \phi(y)$.
-
+\end{itemize}
 
 \subsection{Archimedean property}
 
-\textbf{Theorem(Archimedean property):} If $x\in \mathbb{R}$, then there exists $n\in \mathbb{Z}$ such that $x<n$.
+\begin{itemize}
+\item \textbf{Theorem(Archimedean property):} If $x\in \mathbb{R}$, then there exists $n\in \mathbb{Z}$ such that $x<n$.
 
-\textbf{Proof:} Suppose, for contradiction, that there exists $x\in \mathbb{R}$ s.t. $x>n$ for all $n\in \mathbb{Z}$. Then $x$ is an upper bound of $\mathbb{Z\subseteq\mathbb{R}}$, so $M=\sup\mathbb{Z}\in\mathbb{R}$ exists. Since $n\leq M$ for all $n\in \mathbb{Z}$, we have $n-1\leq M-1$ for all $n\in \mathbb{Z}$, which implies $n\leq M-1$ for all $n\in \mathbb{Z}$. But then $M-1$ is an upper bound of $\mathbb{Z}$ that is strictly less than $M=\sup \mathbb{Z}$, a contradiction to $M=\sup \mathbb{Z}$ being the least upper bound.
+\item \textbf{Proof:} Suppose, for contradiction, that there exists $x\in \mathbb{R}$ s.t. $x>n$ for all $n\in \mathbb{Z}$. Then $x$ is an upper bound of $\mathbb{Z\subseteq\mathbb{R}}$, so $M=\sup\mathbb{Z}\in\mathbb{R}$ exists. Since $n\leq M$ for all $n\in \mathbb{Z}$, we have $n-1\leq M-1$ for all $n\in \mathbb{Z}$, which implies $n\leq M-1$ for all $n\in \mathbb{Z}$. But then $M-1$ is an upper bound of $\mathbb{Z}$ that is strictly less than $M=\sup \mathbb{Z}$, a contradiction to $M=\sup \mathbb{Z}$ being the least upper bound.
 
-\textbf{Corollary:} For every $0<\epsilon\in \mathbb{R}$, there exists an $n\in \mathbb{N}$, s.t. $0<{1\over n}<\epsilon$.
+\item \textbf{Corollary:} For every $0<\varepsilon\in \mathbb{R}$, there exists an $n\in \mathbb{N}$, s.t. $0<{1\over n}<\varepsilon$.
 
-\textbf{Corollary(integer part):} If $x\in \mathbb{R}$, then there exists $[x]=n\in \mathbb{Z}$ called the integer part of $x$, such that $n\leq x<n+1$.
-
+\item \textbf{Corollary(integer part):} If $x\in \mathbb{R}$, then there exists $[x]=n\in \mathbb{Z}$ called the integer part of $x$, such that $n\leq x<n+1$.
+\end{itemize}
 
 \subsection{Further properties}
 
-\textbf{Def(dense set).:} $A\subseteq \mathbb{R}$ is dense in $\mathbb{R}$, if for any $0<\epsilon, x\in \mathbb{R}$ there exists $a\in A$, s.t. $x-\epsilon<a<x+\epsilon$.
+\begin{itemize}
+\item \textbf{Def(dense set):} $A\subseteq \mathbb{R}$ is dense in $\mathbb{R}$, if for any $0<\varepsilon, x\in \mathbb{R}$ there exists $a\in A$, s.t. $x-\varepsilon<a<x+\varepsilon$.
 
-\textbf{Theorem(density of rationals):} $\mathbb{Q\subseteq\mathbb{R}}$ is dense in $\mathbb{R}$.
+\item \textbf{Theorem(density of rationals):} $\mathbb{Q\subseteq\mathbb{R}}$ is dense in $\mathbb{R}$.
 
-\textbf{Proof:} Let $0<\epsilon, x\in \mathbb{R}$. Then for any $n\in \mathbb{N}$ we have 
+\item \textbf{Proof:} Let $0<\varepsilon, x\in \mathbb{R}$. Then for any $n\in \mathbb{N}$ we have 
 \[
 [nx]\leq nx<[nx] + 1
 \]
@@ -274,11 +286,12 @@ which gives
 \[
 {[nx]\over n}\leq x <{[nx]\over n} + {1\over n}
 \]
-Pick $n\in \mathbb{N}$, s.t. $0<{1\over n}<\epsilon$. Then we have
+Pick $n\in \mathbb{N}$, s.t. $0<{1\over n}<\varepsilon$. Then we have
 \[
-{[nx]\over n}\leq x <{[nx]\over n} +{1\over n}<{[nx]\over n} +\epsilon
+{[nx]\over n}\leq x <{[nx]\over n} +{1\over n}<{[nx]\over n} +\varepsilon
 \]
-which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
+which implies $x-\varepsilon<{[nx]\over n} <x+\varepsilon$ as wanted.
+\end{itemize}
 
 \subsection{Properties of sup and inf}
 
@@ -297,7 +310,7 @@ which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
     \item Let $\mathcal{C}$ be a family of sets in $\mathbb{R}$, then $\sup (\cup \mathcal{C}) = \sup \{\sup A:A\in \mathcal{C}\}$.
 \end{enumerate}
 
-\subsection{Intervals and topology of $\mathbb{R}$}
+\subsection{\texorpdfstring{Intervals and topology of $\mathbb{R}$}{Intervals and topology of R}}
 
 \textbf{Def.:} Let $a, b \in \mathbb{R}$.
 \begin{enumerate}
@@ -323,6 +336,184 @@ which implies $x-\epsilon<{[nx]\over n} <x+\epsilon$ as wanted.
     \item an accumulation point of $A$, if for every $0<\epsilon \in \mathbb{R}$ the interval $(x-\epsilon, x+\epsilon)$ contains a point in $A$ distinct from $x$. 
 \end{enumerate}
 
+\section{The absolute value}
+\begin{itemize}
+\item \textbf{Def.:} the absolute value of $x \in \mathbb{R}$ is defined by 
+$\begin{cases}
+x \text{ if } x \geq 0,\\
+-x \text{ if } x < 0.
+\end{cases}.$
+\item \textbf{Proposition}: $\forall x, y \in \mathbb{R}$ we have 
+\begin{enumerate}
+    \item $|x| \geq 0$ and $|x| = 0 \iff x = 0$,
+    \item $|-x| = |x|$,
+    \item (triangle inequality) $|x + y| \leq |x| + |y|$,
+    \item $|xy| = |x||y|$,
+    \item $||x| - |y|| \leq |x - y|$.
+\end{enumerate}
+
+\item \textbf{Proof}: 1.,2. and 4. are trivial. To see 3. suppose without loss of generality that $x \geq 0$, $|x| \geq |y|$, in which case $x + y \geq 0$. If $y \geq 0$, then $|x + y| = x + y = |x| + |y|$. If $y < 0$, then $|x + y| = x + y = |x| - |y| \leq |x| + |y|$. To obtain 5. we use 3. to get $|x| = |x - y + y| \leq |x - y| + |y|$.
+\end{itemize}
+
+\section{Sequences and limits}
+
+\begin{itemize}
+\item \textbf{Def.:} a sequence $x_n$ of real numbers is an ordered list of numbers $x_n \in \mathbb{R}$, called the terms of the sequence, indexed by the natural numbers $n \in \mathbb{N}$. It may be regarded as a function $f: \mathbb{N} \to \mathbb{R}$ with $x_n = f(n)$.
+
+\item \textbf{Def.:} A sequence $(x_n)$ of real numbers converges to a limit $x \in \mathbb{R}$, written as $\displaystyle x = \lim_{n\to\infty} x_n$, or $x_n \to x$ as $n\to\infty$, if $\forall \varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $|x_n - x| < \varepsilon$.
+
+A sequence $(x_n)$ converges if it converges to a limit $x \in \mathbb{R}$, otherwise it diverges. Note that $x_n \to x$ and $|x_n - x| \to 0$ are equivalent statements.
+
+\item \textbf{Def.:} if $(x_n)$ is a sequence, then $\displaystyle \lim_{n\to\infty} x_n = \infty$, or $x_n\to\infty$ if $\forall M \in \mathbb{R}$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $x_n > M$. Similarly, we define $\displaystyle \lim_{n\to\infty} x_n = -\infty$, or $x_n \to -\infty$ if $\forall M \in \mathbb{R}$ there exists $N \in \mathbb{N}$ s.t. $\forall n > N$ we have $x_n < M$.
+\end{itemize}
+
+\subsection{Properties of limits}
+
+\begin{itemize}
+\item \textbf{Proposition}: If a sequence converges, then its limit is unique. 
+
+\item \textbf{Proof}: Suppose that $(x_n)$ is a sequence such that $x_n \to x$ and $x_n \to x'$ as $n\to\infty$. Then $\forall \varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $|x_n - x| < \varepsilon/2$ and $|x_n - x'| < \varepsilon/2$ for all $n > N$. Then $|x - x'| = |x - x_n + x_n - x'| \leq |x - x_n| + |x_n - x'| < \varepsilon$ for all $n > N$. Since $\varepsilon > 0$ was arbitrary, $|x - x'| < \varepsilon$ proves that $|x - x'| = 0$.
+
+\item \textbf{Ex}.: Let $x_n = \frac{1}{n} : n \in \mathbb{N}$. Then $x_n \to 0$. Indeed, let $\varepsilon > 0$ be given. Choose $N \in \mathbb{N}$ s.t. $N > \frac{1}{\varepsilon}$. Then $\forall n > N$ we have $|\frac{1}{n} - 0| = \frac{1}{n} < \frac{1}{N} < \varepsilon$, which proves that $\displaystyle \lim_{n\to\infty} \frac{1}{n} = 0$.
+
+\item \textbf{Proposition}: A convergent sequence is bounded.
+
+\item \textbf{Proof}: After some index $N \in \mathbb{N}$ for all $n > N$ we have $|x_n - x| < 1$ which implies that $x - 1 < x_n < x + 1$, thus $x_n$ is bounded.
+
+\item \textbf{Fact}: Convergence of $x_n$ to $x$ does not depend on any of the first finitely many elements of $(x_n)$.
+
+\item \textbf{Theorem}: If $(x_n)$, $(y_n)$ are convergent sequences, then $x_n \leq y_n$ for all $n > N \in \mathbb{N}$ implies $\lim_{n\to\infty} x_n \leq \lim_{n\to\infty} y_n$. 
+
+\item \textbf{Proof}: $\forall \varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $|x_n - x| < \varepsilon/2$ and $|y_n - y| < \varepsilon/2$ for all $n > N$. Then $x = x_n + x - x_n < y_n + \frac{\varepsilon}{2} = y + y_n - y + \frac{\varepsilon}{2} < y + \varepsilon$, which implies $x \leq y$.
+
+\item \textbf{Theorem(Squeeze, or Sandwich)}: If $(x_n)$, $(y_n)$ are convergent sequences with common limit $L$, then $x_n \leq z_n \leq y_n$ implies $\displaystyle \lim_{n\to\infty} z_n = L$ as well. 
+
+\item \textbf{Proof}: The assumption implies that $\forall \varepsilon > 0$ there exists an index $N \in \mathbb{N}$ s.t. for all $n > N$ we have $L - \varepsilon < x_n \leq z_n \leq y_n < L + \varepsilon$, which means that $z_n \to L$. 
+
+\item \textbf{Theorem}: If $(x_n)$, $(y_n)$ are convergent sequences and $c \in \mathbb{R}$, then
+\begin{enumerate}
+    \item $\displaystyle \lim_{n\to\infty} cx_n = c \lim_{n\to\infty} x_n$; 
+    \item $\displaystyle \lim_{n\to\infty} (x_n + y_n) = \lim_{n\to\infty} x_n + \lim_{n\to\infty} y_n$; 
+    \item$\displaystyle \lim_{n\to\infty} (x_n y_n) = \lim_{n\to\infty} x_n \lim_{n\to\infty} y_n$.
+\end{enumerate}
+\item \textbf{Proof}: If c = 0 then 1. is immediate. If $c \neq 0$, then $|x_n - x| < \varepsilon/|c|$ for all $n > N$ implies $|cx_n - cx| < \varepsilon$.
+\end{itemize}
+
+For the second statement we have $|(x_n + y_n) - (x + y)| \leq |x_n - x| + |y_n - y| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$ for all large enough n, which proves that $x_n + y_n \to x + y$.
+
+For the third statement $|x_n y_n - xy| = |(x_n - x)y_n + x(y_n - y)| \leq |x_n - x||y_n| + |y_n - y||x| < \varepsilon$ for all large enough n, which proves that $x_n y_n \to xy$.
+
+\subsection{Monotone sequences}
+    \begin{itemize}
+        \item \textbf{Definition:} A sequence $(x_n)$ is monotone
+              \begin{description}[leftmargin=1.8em, labelsep=0.5em, style=nextline]
+                  \item[Increasing:] if $x_n \le x_{n+1}$, \emph{strictly} if $x_n < x_{n+1}$;
+                  \item[Decreasing:] if $x_n \ge x_{n+1}$, \emph{strictly} if $x_n > x_{n+1}$.
+              \end{description}
+        \item \textbf{Monotone Convergence Theorem:}
+        
+        If $(x_n)$ is monotone increasing, then $\displaystyle \lim_{n\to\infty} x_n = \sup\{x_n : n \in \mathbb N\}$.
+
+        If $(x_n)$ is monotone decreasing, then $\displaystyle \lim_{n\to\infty} x_n = \inf\{x_n : n \in \mathbb N\}$.
+        \item \textbf{Proof:} We prove only the first statement, the second can be proved by choosing $y_n = -x_n$. The least upper bound of the set $\{x_n:n \in \mathbb N\}$ is $M = \sup\{x_n:n \in \mathbb N\}$, so $x_n \le M$. Suppose $M < \infty$. Then $\forall \varepsilon > 0$ there exists $N \in \mathbb N$ s.t. $M - \varepsilon < x_N \le x_n$ where the second inequality holds for all $n > N$ by monotonicity. This implies $M - \varepsilon < x_n < M + \varepsilon$ for all $n > N$, thus $\lim_{n\to\infty} x_n = M$. If $M = \infty$, then still $\forall K > 0$ there exists $N \in \mathbb N$ s.t. $K < x_N \le x_n$ for all $n > N$ by monotonicity. Thus, $\lim_{n\to\infty} x_n = \infty$.
+    \end{itemize}
+
+\subsection{\texorpdfstring{$\lim sup x_n$ and $\lim inf x_{n}$}{lim sup xn and lim inf xn}}
+\begin{itemize}
+    \item \textbf{Def.:} for a sequence $(x_n)$ we define
+        \begin{description}
+            \item $\displaystyle \lim_{n\to\infty}sup x_n = \lim_{n\to\infty} y_n$ where $y_n = \sup\{x_k: k \in \mathbb{N}, k \ge n\}$; 
+            \item $\displaystyle \lim_{n\to\infty}inf x_n = \lim_{n\to\infty} z_n$ where $z_n = \inf\{x_k: k \in \mathbb{N}, k \ge n\}$.
+        \end{description}
+    \item Note that the above limits exist, because $y_n \ge y_{n+1}$ and $z_n \le z_{n+1}$.
+    \item \textbf{Theorem:} We have $\displaystyle y = \lim_{n\to\infty} sup x_n \iff -\infty \leq y \leq \infty$ satisfies one of the following: 
+    \begin{enumerate}
+        \item $-\infty < y < \infty$ and for $\forall \varepsilon > 0$
+        \begin{enumerate}[label=(\alph*)]
+            \item there exists $N \in \mathbb{N}$ s.t. for all $n > N$ we have $x_n < y + \varepsilon$; 
+            \item For every $N \in \mathbb{N}$ there exists $n > N$ s.t. $x_n > y - \varepsilon$. 
+        \end{enumerate}
+        \item $y = \infty$ and for every $M \in \mathbb{R}$ there exists $n \in \mathbb{N}$ s.t. $x_n > M$. 
+        \item $y = -\infty$ and for every $m \in \mathbb{R}$ there exists $N \in \mathbb{N}$ s.t. $x_n < m$ for all $n > N$. 
+    \end{enumerate}
+    Analogous results hold for the lim inf as well.
+    \item \textbf{Proof:} First suppose that $-\infty < y < \infty$. Then $(x_n)$ is bounded from above and $y_n = \sup\{x_k: k \in \mathbb{N}, k \ge n\}$ is a monotone decreasing sequence with limit $y$. Therefore $\forall \varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $y_N < y + \varepsilon$. Since $x_n \le y_N$ for all $n > N$ we have $x_n < y + \varepsilon$ proving 1.a. 
+    
+    To prove 1.b. let $\varepsilon > 0$ and suppose that $N \in \mathbb{N}$ is arbitrary. $y_N \ge y$ is the sup of $\{x_k: k \in \mathbb{N}, k \ge N\}$, there exists $n \ge N$ s.t. $x_n > y_N - \varepsilon \ge y - \varepsilon$ which proves 1.b. 
+    
+    Conversely, suppose that $-\infty < y < \infty$ satisfies 1. Then given any $\varepsilon > 0$, 1.a. implies that there exists $N \in \mathbb{N}$ s.t. $y_n = \sup\{x_k: k \in \mathbb{N}, k \ge n\} < y + \varepsilon$ for all $n > N$, and 1.b. implies that $y_n > y - \varepsilon$ for all $n \in \mathbb{N}$. Thus, $|y_n - y| < \varepsilon$ for all $n > N$, so $y_n \to y$.
+
+    \item \textbf{Theorem:} for a sequence $(x_n)$ we have 
+    
+    $\displaystyle \limsup_{n\to\infty} x_n = \liminf_{n\to\infty} x_n = x \iff \lim_{n\to\infty} x_n = x.$. 
+    \item \textbf{Proof:} First suppose $\displaystyle \limsup_{n\to\infty} x_n = \liminf_{n\to\infty} x_n = x$. Then $y_n = \sup\{x_k: k \in \mathbb{N}, k \geq n\}$ is monotone decreasing to $x$, while $z_n = inf{x_k: k \in \mathbb{N}, k \geq n}$ is monotone increasing to $x$ and also $z_n \leq x_n \leq y_n$, so the squeeze theorem proves $\displaystyle \lim_{n\to\infty} x_n = x$. The reverse implication follows from $x - \varepsilon < x_n < x + \varepsilon$ implying also $x - \varepsilon < z_n \leq y_n < x + \varepsilon$ for all $n > N$ where $N$ is chosen accordingly to given $\varepsilon > 0$. Thus, $z_n, y_n \to x$.
+
+    In the remaining cases a sequence $(x_n)$ diverges to $\displaystyle \infty \iff \liminf_{n\to\infty} x_n = \infty$, and then $\displaystyle \limsup_{n\to\infty} x_n = \infty$, since $\displaystyle \limsup_{n\to\infty} x_n \geq \liminf_{n\to\infty} x_n$. Similarly, $(x_n)$ diverges to $\displaystyle -\infty \iff \limsup_{n\to\infty} x_n = -\infty$ and then $\displaystyle \liminf_{n\to\infty} x_n = -\infty$ as well. 
+    \item \textbf{Corollary:} $\displaystyle \lim_{n\to\infty} x_n = x \iff \limsup_{n\to\infty} |x_n - x| = 0$.
+\end{itemize}
+
+\subsection{Cauchy sequences}
+\begin{itemize}
+    \item \textbf{Def(Cauchy sequence):} a sequence $(x_n)$ is a Cauchy sequence if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $|x_n - x_m| < \varepsilon$ for all $n, m > N$. 
+    \item \textbf{Theorem:} A sequence $(x_n)$ converges $\iff$ it is Cauchy.
+    \item \textbf{Proof:} First suppose that $(x_n)$ converges to a limit $x \in \mathbb{R}$. Then $\forall \varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $|x_n - x| < \frac{\varepsilon}{2}$ for all $n > N$. It follows that if $n, m > N$, then $|x_n - x_m| \leq |x_n - x| + |x_m - x| < \varepsilon$ proving that $(x_n)$ is Cauchy.
+
+    Conversely suppose that $(x_n)$ is Cauchy. Then there exists $N_1 \in \mathbb{N}$ s.t. for all $n, m > N_1$, we have that $|x_n - x_m| < 1$. Then for $n > N_1$ we have $|x_n| \leq |x_n - x_{N_1 + 1}| + |x_{N_1 + 1}| \leq 1 + |x_{N_1 + 1}|$. 
+    
+    Thus, the sequence is bounded with 
+    
+    $|x_n| \leq \max\{|x_1|, ... , |x_{N_1}|, 1+|x_{N_1 + 1}|\}$.
+    
+    Given that $(x_n)$ is bounded, its lim sup and lim inf is bounded. Given $\varepsilon > 0$, choose $N \in \mathbb{N}$ s.t. by the assumption $x_n - \varepsilon < x_m < x_n + \varepsilon$ for all $m \geq n > N$. Then we have 
+    
+    $x_n - \varepsilon \leq \inf\{x_m: m \in \mathbb{N}, m \geq n\}$ and $\sup\{x_m: m \in \mathbb{N}, m \geq n\} \leq x_n + \varepsilon$,
+    
+    which implies 
+    
+    $\sup\{x_m: m \in \mathbb{N}, m \geq n\} - \varepsilon \leq \inf\{x_m: m \in \mathbb{N}, m \geq n\} + \varepsilon$. 
+    
+    Taking the limit $n \to \infty$, we get that 
+    
+    $\displaystyle \limsup_{n \to \infty} x_n - \varepsilon \leq \liminf_{n \to \infty} x_n + \varepsilon$ 
+    
+    and since $\varepsilon > 0$ was arbitrary, this yields $\displaystyle \limsup_{n \to \infty} x_n \leq \liminf_{n \to \infty} x_n$, thus 
+    
+    $\displaystyle \limsup_{n \to \infty} x_n = \liminf_{n \to \infty} x_n$ which implies convergence.
+\end{itemize}
+
+\subsection{Subsequences}
+\begin{itemize}
+    \item \textbf{Def(subsequence):} a subsequence of a sequence $(x_n)$ is a sequence of the form $(x_{n_k})$ with index $k \in \mathbb{N}$ where $n_1 < n_2 < ... < n_k < ....$ In other words, $n_k$ is a strictly increasing integer valued function with domain $\mathbb{N}$.
+    \item \textbf{Proposition:} Every subsequence of a convergent sequence converges to the limit of the sequence.
+    \item \textbf{Proof:} Suppose $(x_n)$ is a convergent sequence with $\displaystyle \lim_{n\to\infty} x_n = x$ and $(x_{n_k})$ is a subsequence. Given $\varepsilon > 0$ there exists $N \in \mathbb{N}$ s.t. $|x_n - x| < \varepsilon$ for all $n > N$. Since $n_k \to \infty$ as $k \to \infty$, there exists $K \in \mathbb{N}$ s.t. $n_k > N$ if $k > K$. Then $k > K$ implies $|x_{n_k} - x| < \varepsilon$.
+    \item \textbf{Corollary:} If a sequence has subsequences that converge to different limits, then the sequence diverges.
+\end{itemize}
+
+\subsection{Bolzano-Weierstrass theorem}
+\begin{itemize}
+    \item \textbf{Theorem(Bolzano-Weierstrass):} Every bounded sequence of real numbers has a convergent subsequence. 
+    \item \textbf{Proof:} The statement will follow from the Monotone Convergence theorem of monotone bounded sequences using the following 
+    
+    \textbf{Claim:} every sequence $(x_n)$ has a monotone subsequence. 
+
+    \textbf{Proof:} Let us call a positive integer-valued index $n$ of a sequence a "peak" of the sequence when $x_m \leq x_n$ for all $m > n$. Suppose first that the sequence has infinitely many peaks, which means there is a subsequence $(x_{n_k})$ consisting of these peaks for which we have $x_{n_1} \geq x_{n_2} \geq x_{n_3} \geq ... \geq x_{n_k} \geq ...$, so $(x_{n_k})$ is a monotone decreasing subsequence. Now suppose that on the contrary there are only finitely many peaks of $(x_n)$. Let the index $N$ be the index of the final peak in $(x_n)$ and let $n_1 = N + 1$. Since $n_1$ comes after the final peak, it is not a peak, thus it implies the existence of $n_2 > n_1$ s.t. $x_{n_2} \geq x_{n_1}$. Again $n_2$ comes after the final peak, it is not a peak, so again it implies the existence $n_3 > n_2$ s.t. $x_{n_3} \geq x_{n_2}$. Repeating this we obtain $x_{n_1} \leq x_{n_2} \leq x_{n_3} \leq ... \leq x_{n_k} \leq ...$ a monotone increasing subsequence $(x_{n_k})$.
+\end{itemize}
+
+\section{Binomial theorem}
+\begin{itemize}
+    \item Let $\dbinom{n}{k} = B(n,k) = \frac{n!}{k!(n-k)!}$ for $n \geq k \geq 0$ integers. It is called the binomial coefficient.
+    \item \textbf{Proposition:} $\dbinom{n}{k}$ gives the number of ways, disregarding order, that k objects can be chosen from among $n$ objects; more formally, the number of $k$-element subsets (or $k$-combinations) of an $n$-element set. Also, $\dbinom{n}{k} = \dbinom{n-1}{k-1} + \dbinom{n-1}{k}$.
+    \item \textbf{Theorem(Binomial theorem):} Let $x, y \in \mathbb{R}$ and $n \in \mathbb{N}_0$. Then 
+    \[
+    (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}.
+    \]
+    \item \textbf{Proof:}~$(x+y)^n = \underbrace{(x+y)}_{1}\,\cdots\,\underbrace{(x+y)}_{n}.$
+
+    and you count the number of times the term $x^k y^{n-k}$ occurs in the expansion. It is exactly how many ways $k$ objects can be chosen from among $n$ objects.
+    \item \textbf{Corollary:} For $1 < x = 1 + \delta$ the binomial theorem implies that $x^n > 1 + n\delta$, thus $x^n \to \infty$. Similarly, when $1 > x > 0$ we have that $\frac{1}{x} > 1$, so $\frac{1}{x^n} \to \infty$ implies that $x^n \to 0$. When $-1 < x < 1$ these imply $x^n \to 0$.
+\end{itemize}
+
+
 \section{Series}
 \subsection{Series}
 
@@ -341,6 +532,7 @@ s=\sum_{n=1}^{\infty}{a_n}
 \]
 We also say a series diverges to $\pm \infty$ if its sequence of partial sums does.
 
+\subsection{Basic conditions for convergence}
 \textbf{Proposition:} a series $\sum_{n=1}^{\infty}{a_n}$  with $a_n\geq 0$ converges iff $\exists M\geq 0$ s.t.
 \[
 s_k=\sum_{n=1}^{k}{a_n}\leq M
@@ -354,7 +546,6 @@ diverges to $\infty$.
 
 \textbf{Proof:} $(s_k)$ converges iff $(s_k)$ is Cauchy, that is: $\forall \epsilon > 0$ there exist $N\in \mathbb{N}$ s.t. $|s_k-s_m|<\epsilon$ for all $m,k>N$ where $|s_k-s_m|=|\sum_{n=m+1}^{k}{a_n}|$.
 
-\subsection{Basic conditions for convergence}
 
 \textbf{Proposition:} if $\sum_{n=1}^{\infty}{a_n}$ converges, then $\lim_{n\to \infty}a_n=0$.
 
@@ -570,6 +761,5 @@ It follows that \( a_n \) does not tend to 0,
 so the series \( \sum_{n=1}^{\infty} a_n \) diverges.
 
 When \( r = 1 \), the test is inconclusive.
-
 
 \end{document}
