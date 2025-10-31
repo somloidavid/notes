@@ -762,4 +762,224 @@ so the series \( \sum_{n=1}^{\infty} a_n \) diverges.
 
 When \( r = 1 \), the test is inconclusive.
 
+\section{Limits of functions}
+
+\begin{itemize}
+    \item \textbf{Def(Limit of a function):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. Then 
+    \[
+    \lim_{x \to c} f(x) = L 
+    \]
+    if for every $\epsilon > 0$ there exists a $\delta > 0$ such that 
+    \[
+    0 < |x - c| < \delta \text{ and } x \in A \implies |f(x) - L| < \epsilon.
+    \] 
+    We also use the notation $f(x) \to L$ as $x \to c$. 
+    \item We do not consider what happens when $x = c$, and a function need not be defined at $c$ for its limit to exist. 
+    \item \textbf{Corollary:} If $\displaystyle \lim_{x \to c} f(x) = L$ exists, then it is unique by the same argument as for sequences.
+
+    \item \textbf{Theorem (sequential characterization of the limit):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. Then 
+    \[
+    \displaystyle \lim_{x \to c} f(x) = L
+    \]
+    if and only if
+    \[
+    \lim_{n \to \infty} f(x_n) = L
+    \]
+    for every sequence $(x_n) \in A$ with $x_n \neq c$ and $\displaystyle \lim_{n \to \infty} x_n = c $.
+    \item \textbf{Proof:} $\implies$: By the assumption there exists a $\delta > 0$ such that $0 < |x - c| < \delta$ and $x \in A$ implies $|f(x) - L| < \varepsilon$. Since $x_n \to c$, there exists $N \in \mathbb{N}$ s.t. $0 < |x_n - c| < \delta$ for all $n > N$. Then, it follows that $|f(x_n) - L| < \varepsilon$ for all $n > N$.
+    
+    $\Longleftarrow$: On the contrary assume that there exists $\varepsilon > 0$ s.t. for all $\delta > 0$ there is a point $x \in A$ with
+    
+    $0 < |x - c| < \delta$ but $|f(x) - L| \geq \varepsilon$. Thus, for every $n \in \mathbb{N}$ there exists an $x_n \in A$ s.t.
+
+    $0 < |x_n - c| < \frac{1}{n}$ and $|f(x_n) - L| \geq \varepsilon$. It follows that $x_n \neq c$ and $\displaystyle \lim_{n \to \infty}x_n = c$, but $\displaystyle \lim_{n \to \infty} f(x_n) \neq L$.
+\end{itemize}
+
+\subsection{Left, right and infinite limits}
+
+\begin{itemize}
+\item \textbf{Def(left/right limits):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. Then $f$ has the right limit
+\[
+\lim_{x \to c^+} f(x) = L
+\]
+if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that $0 < x - c < \delta$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$.
+
+Similarly, $f$ has the left limit
+\[
+\lim_{x \to c^-} f(x) = L
+\]
+if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that $0 < c - x < \delta$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$.
+
+\item \textbf{Proposition:} Suppose $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of both $\{x \in A:x > c\}$ and $\{x \in A:x < c\}$. Then $\displaystyle \lim_{x \to c} f(x) = L$ iff $\displaystyle \lim_{x \to c^+} f(x) = \lim_{x \to c^-} f(x) = L$.
+
+\item \textbf{Proof:} Existence of the limit implies the existence of the left and right limits and that they are equal. Conversely $\displaystyle \lim_{x \to c^+} f(x) = \lim_{x \to c^-} f(x) = L$ implies that for all $\varepsilon > 0$ there exists a $\delta_1, \delta_2 > 0$ s.t. $0 < x - c < \delta_1$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$; and $0 < c - x < \delta_2$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$. Choosing $\delta = \min\{\delta_1, \delta_2\}$, we get that $0 < |x - c| < \delta$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$ as claimed.
+
+\item \textbf{Def(limits as $x \to \pm \infty$):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $A$ is not bounded from above. Then
+\[
+\lim_{x \to \infty} f(x) = L
+\]
+if for every $\varepsilon > 0$ there exists a $M \in \mathbb{R}$ such that $x > M$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$.
+
+Similarly, when $A$ is not bounded from below, we define
+\[
+\lim_{x \to -\infty} f(x) = L
+\]
+if for every $\varepsilon > 0$ there exists a $M \in \mathbb{R}$ such that $x < M$ and $x \in A$ implies that $|f(x) - L| < \varepsilon$.
+
+One can easily see that $\displaystyle \lim_{x \to \infty} f(x) = \lim_{t \to 0^+} f\left(\frac{1}{t}\right)$ and $\displaystyle \lim_{x \to -\infty} f(x) = \lim_{t \to 0^-} f\left(\frac{1}{t}\right) = L$.
+
+\item \textbf{Def(Divergence to $\pm \infty$):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. Then
+\[
+\lim_{x \to c} f(x) = \infty
+\]
+if for every $M \in \mathbb{R}$ there exists a $\delta > 0$ such that $0 < |x - c| < \delta$ and $x \in A$ implies that $f(x) > M$.
+
+Similarly,
+\[
+\lim_{x \to c} f(x) = -\infty
+\]
+if for every $m \in \mathbb{R}$ there exists a $\delta > 0$ such that $0 < |x - c| < \delta$ and $x \in A$ implies that $f(x) < m$.
+
+The left and right limits in these cases are defined accordingly.
+\end{itemize}
+
+\subsection{Properties of limits}
+
+The proof of the following results now follows from corresponding ones proved for sequences.
+
+\begin{itemize}
+\item \textbf{Theorem(monotonicity of the limit):} Let $f, g: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. If $f(x) \leq g(x)$ for all $x \in A$, then
+\[
+\lim_{x \to c} f(x) \leq \lim_{x \to c} g(x)
+\]
+whenever both limits exist.
+
+\item \textbf{Theorem(Squeeze theorem):} Let $f, g, h: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$. If $f(x) \leq g(x) \leq h(x)$ for all $x \in A$ and $\displaystyle \lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L$, then $\displaystyle \lim_{x \to c} g(x) = L$.
+
+\item \textbf{Theorem(algebraic properties of limits):} Let $f, g: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in \mathbb{R}$ is an accumulation point of $A$ and assume that $\displaystyle \lim_{x \to c} f(x)$, $\displaystyle \lim_{x \to c} g(x) = M$ exist. Then
+\begin{enumerate}
+    \item $\displaystyle \lim_{x \to c} \alpha f(x) = \alpha \lim_{x \to c}f(x)$ for every $\alpha \in \mathbb{R}$;
+    \item $\displaystyle \lim_{x \to c} (f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$;
+    \item $\displaystyle \lim_{x \to c} (f(x)g(x)) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x))$;
+    \item $\displaystyle \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\displaystyle \lim_{x \to c}f(x)}{\displaystyle \lim_{x \to c}g(x)}$ when $\displaystyle \lim_{x \to c}g(x) \neq 0$.
+\end{enumerate}
+\end{itemize}
+
+\section{Continuous functions}
+
+\begin{itemize}
+\item \textbf{Def(continuous function):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in A$. Then $f$ is \emph{continuous} at $c \in A$ if
+\[
+\lim_{x \to c} f(x) = f(c).
+\]
+
+\item \textbf{Def(left/right continuity):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and suppose that $c \in A$. Then $f$ is \emph{continuous from the right} at $c \in A$ if
+\[
+\lim_{x \to c^+} f(x) = f(c).
+\]
+Similarly, $f$ is \emph{continuous from the left} at $c \in A$ if
+\[
+\lim_{x \to c^-} f(x) = f(c).
+\]
+
+\item \textbf{Theorem:} If $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, and $c \in A$ is an accumulation point of $A$, then $f$ is continuous at $c$ iff
+\[
+\lim_{n \to \infty} f(x_n) = f(c)
+\]
+for every sequence $(x_n) \subseteq A$ with $\displaystyle \lim_{n \to \infty} x_n = c$.
+\end{itemize}
+
+\subsection{Properties of continuous functions}
+
+Classification of discontinuities of $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$, $c \in A$ is an accumulation point of $A$:
+\begin{enumerate}
+\item \textbf{Removable discontinuity:} $\displaystyle \lim_{x \to c} f(x) = L$ exists, but $f(c) \neq L$.
+\item \textbf{Jump discontinuity:} $\displaystyle \lim_{x \to c} f(x)$ does not exists, but at least $\displaystyle \lim_{x \to c^+} f(x) \neq \lim_{x \to c^-} f(x)$ where both one-sided limits exist.
+\item \textbf{Essential discontinuity:} $\displaystyle \lim_{x \to c} f(x)$ does not exists, and at least one of $\displaystyle \lim_{x \to c^+} f(x)$ or $\displaystyle \lim_{x \to c^-} f(x)$ does not exist either.
+\end{enumerate}
+
+\begin{itemize}
+\item \textbf{Theorem(algebraic properties of continuous functions):} If $f, g: A \to \mathbb{R}$ are continuous at $c \in A$, then $\alpha f(x)$ for any $\alpha \in \mathbb{R}$, $f(x) + g(x)$, $f(x)g(x)$ are all continuous at $c \in A$. Moreover, if $g(c) \neq 0$ then $\frac{f(x)}{g(x)}$ is also continuous at $c \in A$.
+
+\item \textbf{Corollary:} a polynomial function $\displaystyle p(x) = \sum_{i=0}^{n} c_ix^i$ with $c_i \in \mathbb{R}$ is continuous at every $x \in \mathbb{R}$. More generally a rational function $r(x) = \frac{p(x)}{q(x)}$ with $p, q$ polynomials is continuous at every $x \in \mathbb{R}$ where it is defined, that is where $q(x) \neq 0$.
+
+\item \textbf{Theorem:} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$. Then $f$ is continuous on $A$ iff the inverse image $f^{-1}(U) = \{x \in A: f(x) \in U\}$ is open in $A$ for any open set $U \subseteq Ran(f)$.
+
+\item \textbf{Proof:} $\implies$: Let $c \in f^{-1}(U)$. Then $f(c) \in U$ for $U$ open, thus there exists $\varepsilon > 0$ s.t. the open set $U_f(c) = (f(c) - \varepsilon, f(c) + \varepsilon) \subseteq U$. By continuity of $f$ at $c$, there exists $\delta > 0$ s.t. the open set $V_c = (c - \delta, c + \delta)$ satisfies $f(A \cap V_c) \subseteq U_f(c)$. This means that $x \in (c - \delta, c + \delta)$ implies $f(x) \in (f(c) - \epsilon, f(c) + \epsilon)$, thus $f^{-1}(U)$ contains an open neighborhood in $A$.
+
+$\Longleftarrow$: Assume that $f^{-1}(U)$ is open in $A$ for any open $U \subseteq Ran(f)$ and let $c \in U$. Then for small enough $\varepsilon > 0$ the preimage of the open set $(f(c) - \varepsilon, f(c) + \varepsilon)$ is open, so it contains an open set $(c - \delta, c + \delta)$ in $A$. This implies that $|f(x) - f(c)| < \varepsilon$ whenever $|x - c| < \delta$ and $x \in A$, that is, the continuity of $f$ at $c \in U$.
+
+\item \textbf{Theorem:} Let $f: A \to \mathbb{R}$, $g: B \to \mathbb{R}$ where $A, B \subseteq \mathbb{R}$. If $f$ is continuous at $c \in A$ and $g$ is continuous at $f(c) \in B$, then $g \circ f$ is continuous at $c$.
+
+\item \textbf{Proof:} $f$ maps small open neighborhoods $U_c$ of $c \in A$ into small open neighborhoods $V_f(c)$ of $f(c) \in B$ which in turn are also mapped to small open neighborhoods $W_g(f(c))$ of $g(f(c))$ by $g$.
+
+\item \textbf{Corollary:} Let $f: A \to \mathbb{R}$, $g: B \to \mathbb{R}$ where $f(A) \subseteq B$. If $f$ is continuous on $A$ and $g$ is continuous on $f(A)$, then $g \circ f$ is continuous on $A$.
+
+\item \textbf{Terminology:} closed and bounded sets ($of \mathbb{R}$) are also called \emph{compact} sets. Continuous functions preserve this property:
+
+\item \textbf{Theorem:} If $A \subseteq \mathbb{R}$ is compact and $f: A \to \mathbb{R}$ is continuous, then $f(A)$ is also compact.
+
+\item \textbf{Proof:} We need to show that $f(A)$ is closed and bounded. This is the case, if for any arbitrary sequence $(y_n) \subseteq f(A)$ we can always find a convergent subsequence $(y_{n_k})$ with limit in $f(A)$. Let $(x_n) \subseteq A$ be the preimage of the sequence $(y_n)$, that is $f(x_n) = y_n$. By the Bolzano-Weierstrass theorem there exists a convergent subsequence $(x_{n_k})$ with limit $x \in A$. Then continuity of $f$ implies that $\displaystyle \lim_{k \to \infty}f(x_{n_k}) = f(x) \in f(A)$. This implies that $f(A)$ is closed, and also implies that it contains no unbounded sequence, thus also bounded.
+\end{itemize}
+
+\subsection{Extreme value theorem}
+
+\begin{itemize}
+\item \textbf{Theorem(Weierstrass' Extreme value theorem):} If $A \subseteq \mathbb{R}$ is compact and $f: A \to \mathbb{R}$ is continuous, then $f$ attains its maximum and minimum on $A$.
+
+\item \textbf{Proof:} $f(A)$ is closed and bounded. Boundedness implies that there exist $\sup f(A)$ and $\inf f(A)$, and then closedness implies that they are included in $f(A)$ and thus have preimages in $A$.
+\end{itemize}
+
+\subsection{Intermediate value theorem}
+
+\begin{itemize}
+\item \textbf{Theorem(Intermediate value):} Suppose that $f: [a, b] \to \mathbb{R}$ is continuous on the closed and bounded $[a, b]$. If $f(a)$ and $f(b)$ have opposite signs, then there exists $c \in (a, b)$ s.t. $f(c) = 0$.
+
+\item \textbf{Proof:} Suppose that $f(a) < 0$ and $f(b) > 0$, otherwise we can consider $-f$ instead of $f$. The set $A = \{x \in [a, b]: f(x) < 0\}$ is nonempty since $f(a) < 0$, and is bounded from above by $b$. Let $c = \sup A$. We claim that $f(c) = 0$. So, suppose that $f(c) \neq 0$. Then by the continuity of $f$ at $c$, there exists $\delta > 0$ s.t. $x \in [a, b]$ and $|x - c| < \delta$ implies that $|f(x) - f(c)| < \frac{|f(c)|}{2}$. If $f(c) < 0$, then $c \neq b$ and $f(x) = f(c) + f(x) - f(c) < f(c) - \frac{|f(c)|}{2}$ for all $x \in [a, b]$ s.t. $|x - c| < \delta$, so $f(x) < \frac{f(c)}{2} < 0$. It follows that there exists $x \in A$ for which $x > c$, which contradicts that $c = \sup A$. In the remaining case $f(c) > 0$, then $c \neq a$ and $f(x) = f(c) + f(x) - f(c) > f(c) - \frac{f(c)}{2}$ for all $x \in [a, b]$ s.t. $|x - c| < \delta$, so $f(x) > \frac{f(c)}{2} > 0$. It follows that there exists $\eta > 0$ s.t. $c - \eta \geq a$ and $f(x) > 0$ for $c - \eta \leq x \leq c$. Thus $c - \eta$ is a smaller upper bound for $A$ then $c$ which contradicts that $c = \sup A$. This proves $f(c) = 0$ and thus also $c \neq a,b$ since $f(a) < 0$ and $f(b) > 0$.
+
+\item \textbf{Theorem(Intermediate value theorem):} Suppose that $f: [a, b] \to \mathbb{R}$ is continuous on the closed and bounded $[a, b]$. Then for every $d \in (f(a),f(b))$ there is a point $c \in [a, b]$ s.t. $f(c) = d$.
+\end{itemize}
+
+\subsection{Uniform continuity}
+
+\begin{itemize}
+\item \textbf{Def(uniformly continuous function):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$. Then $f$ is \emph{uniformly continuous on} $A$ if for every $\varepsilon > 0$ there exists a $\delta > 0$ s.t. $x, y \in A$ and $|x - y| < \delta$ implies that $|f(x) - f(y)| < \varepsilon$.
+
+The key point is that $\delta$ depends only on $\varepsilon$, not on $x,y \in A$. In other words, the difference $|f(x) - f(y)|$ is \emph{uniformly} small over the set $A$ given that the difference $|x - y|$ is small.
+
+\item \textbf{Ex.:} Define $f:[0,1] \to \mathbb{R}$ by $f(x) = x^2$. Then $f$ is uniformly continuous on $[0,1]$ because $|f(x) - f(y)| = |x^2 - y^2| = |x + y||x - y| \leq 2|x - y|$, thus we can take $\delta = \frac{\varepsilon}{2}$ on $[0,1]$. Define $g: (0,1] \to \mathbb{R}$ by $g(x) = \frac{1}{x}$. Then $|g(x) - g(y)| = \left|\frac{1}{x} - \frac{1}{y}\right| = \frac{|x - y|}{|xy|}$, thus $g$ is not uniformly continuous on $(0,1]$.
+
+\item \textbf{Def(Lipschitz continuous function):} Let $f: A \to \mathbb{R}$, where $A \subseteq \mathbb{R}$. Then $f$ is \emph{(L-)Lipschitz continuous on} $A$ if there exists $L > 0$ s.t. $x, y \in A$ implies that $|f(x) - f(y)| < L|x - y|$.
+
+\item \textbf{Theorem(Heine's theorem):} If $A \subseteq \mathbb{R}$ is compact and $f: A \to \mathbb{R}$ is continuous, then $f$ is uniformly continuous on $A$.
+
+\item \textbf{Proof:} Suppose on the contrary that $f$ is not uniformly continuous on $A$. Then there exist $\varepsilon > 0$ and sequences $(x_n), (y_n) \subseteq A$ s.t. $|x_n - y_n| \to 0$ and $|f(x_n) - f(y_n)| \geq \varepsilon$ for every $n \in \mathbb{N}$. Since $A$ is closed and bounded by Bolzano-Weierstrass there exist convergent subsequences $(x_{n_k})$ and $(y_{n_k})$ of $(x_n)$ and $(y_n)$ respectively with a common limit $x \in A$ due to $|x_n - y_n| \to 0$. By the continuity of $f$, we get that $|f(x_{n_k}) - f(y_{n_k})| \leq |f(x_{n_k}) - f(x)| + |f(x) - f(y_{n_k})| \to 0$ contradicting $|f(x_{n_k}) - f(y_{n_k})| \geq \varepsilon$.
+\end{itemize}
+
+\subsection{Monotonic functions}
+
+\begin{itemize}
+\item \textbf{Def(monotone function):} Let $I \subseteq \mathbb{R}$ be an interval. A function $f: I \to \mathbb{R}$ is
+\begin{description}
+    \item[Increasing] if $f(x_1) \leq f(x_2)$ for $x_1 < x_2$ in $I$, \emph{strictly} if $f(x_1) < f(x_2)$;
+    \item[Decreasing] if $f(x_1) \geq f(x_2)$ for $x_1 < x_2$ in $I$, \emph{strictly} if $f(x_1) > f(x_2)$.
+\end{description}
+
+\item \textbf{Theorem:} If $f: I \to \mathbb{R}$ is monotone, then $\displaystyle \lim_{x \to c^+} f(x)$ and $\displaystyle \lim_{x \to c^-} f(x)$ exist at every interior point $c \in I$.
+
+\item \textbf{Proof:} Assume that $f$ is increasing, otherwise we can choose $-f$. We claim that $\displaystyle \lim_{x \to c^-} f(x) = \sup\{f(x) \in \mathbb{R}: x \in I, x < c\}$. First, the set $E = \{f(x) \in \mathbb{R}: x \in I, x < c\}$ is not empty since $c \in I$ is an interior point, and $E \leq f(c)$ because $f$ is increasing, so $\sup E$ exists. For $\varepsilon > 0$, there exists $y_0 \in E$ s.t. $\sup E - \epsilon < y_0 \leq \sup E$ and a corresponding $c > x_0 \in I$ with $y_0 = f(x_0)$. Let $\delta = c - x_0$. If $c - \delta < x < c$, then $x_0 < x < c$ implying $f(x_0) \leq f(x) \leq \sup E$. It follows that $\sup E - \epsilon < f(x) \leq \sup E$ when $c - \delta < x < c$, thus $\displaystyle \lim_{x \to c^-} f(x) = \sup E$. A similar argument implies that $\displaystyle \lim_{x \to c^+} f(x)$ exists as well.
+
+\item \textbf{Corollary:} If $f: I \to \mathbb{R}$ is monotone, then at every interior point $c \in I$, $f$ is either continuous or has a jump.
+
+\item \textbf{Proof:} For $f$ increasing $\displaystyle \lim_{x \to c^-} f(x) \leq f(c) \leq \lim_{x \to c^+} f(x)$ holds and implies either $\displaystyle \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x)$ or $\displaystyle \lim_{x \to c^-} f(x) \leq f(c) \leq \lim_{x \to c^+} f(x)$ with at least one inequality strict.
+\end{itemize}
+
+\subsection{Inverse of a strictly monotone function}
+
+\begin{itemize}
+\item \textbf{Proposition(inverse of a strictly monotone function):} Let $f: I \to \mathbb{R}$ be a strictly monotone and continuous function on an interval $I$. Then $f^{-1}: f(I) \to I$ exists, $f(I)$ is an interval, moreover $f^{-1}$ is also strictly monotone and continuous.
+
+\item \textbf{Proof:} Assume that $f$ is strictly increasing, the case of decreasing $f$ has similar proof. Then $f$ is injective, because $x, y \in I$ and $x \neq y$ implies that either $x < y$ or $x > y$, which implies by that either $f(x) < f(y)$ or $f(x) > f(y)$, since $f$ is strictly increasing. Thus $f^{-1}: f(I) \to I$ exists, moreover $f(x) < f(y)$ implies $x < y$, since $f(x) < f(y)$ and $x \geq y$ would contradict that $f$ is increasing. The intermediate value theorem implies that $f(I)$ is an interval, because $I$ is also. Now to see that $f^{-1}$ is continuous, it is enough to see that $f^{-1}$ is continuous on every closed and bounded interval $[f(a),f(b)]$ for $a < b$. Let $(y_n),y \in [f(a),f(b)]$ be such that $y_n \to y$, that is $f(x_n) = y_n \to y = f(x)$ for corresponding $x_n, x \in [a,b]$. What we need to show that $x_n \to x$ as well. Since $[a,b]$ is bounded there exist $\displaystyle \limsup_{n \to \infty} x_n$ and $\displaystyle \liminf_{n \to \infty} x_n$ with corresponding subsequences $(x_{n_j}), (x_{n_k})$ s.t. $\displaystyle \lim_{j \to \infty}x_{n_j} = \limsup_{n \to \infty}x_n$ and $\displaystyle \lim_{k \to \infty}x_{n_k} = \liminf_{n \to \infty}x_n$. Then the continuity of $f$ implies $\displaystyle \lim_{j \to \infty}f(x_{n_j}) = f(\limsup_{n \to \infty}x_n)$ and $\displaystyle \lim_{k \to \infty}f(x_{n_k}) = f(\liminf_{n \to \infty}x_n)$ which combined with $f(x_n) \to f(x)$ yields $\displaystyle f(x) = f(\liminf_{n \to \infty}x_n) = f(\limsup_{n \to \infty}x_n)$. Now $f$ is injective, so $\displaystyle \limsup_{n \to \infty}x_n = \liminf_{n \to \infty}x_n = x$, thus $x_n \to x$.
+\end{itemize}
+    
 \end{document}
