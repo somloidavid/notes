@@ -981,5 +981,71 @@ The key point is that $\delta$ depends only on $\varepsilon$, not on $x,y \in A$
 
 \item \textbf{Proof:} Assume that $f$ is strictly increasing, the case of decreasing $f$ has similar proof. Then $f$ is injective, because $x, y \in I$ and $x \neq y$ implies that either $x < y$ or $x > y$, which implies by that either $f(x) < f(y)$ or $f(x) > f(y)$, since $f$ is strictly increasing. Thus $f^{-1}: f(I) \to I$ exists, moreover $f(x) < f(y)$ implies $x < y$, since $f(x) < f(y)$ and $x \geq y$ would contradict that $f$ is increasing. The intermediate value theorem implies that $f(I)$ is an interval, because $I$ is also. Now to see that $f^{-1}$ is continuous, it is enough to see that $f^{-1}$ is continuous on every closed and bounded interval $[f(a),f(b)]$ for $a < b$. Let $(y_n),y \in [f(a),f(b)]$ be such that $y_n \to y$, that is $f(x_n) = y_n \to y = f(x)$ for corresponding $x_n, x \in [a,b]$. What we need to show that $x_n \to x$ as well. Since $[a,b]$ is bounded there exist $\displaystyle \limsup_{n \to \infty} x_n$ and $\displaystyle \liminf_{n \to \infty} x_n$ with corresponding subsequences $(x_{n_j}), (x_{n_k})$ s.t. $\displaystyle \lim_{j \to \infty}x_{n_j} = \limsup_{n \to \infty}x_n$ and $\displaystyle \lim_{k \to \infty}x_{n_k} = \liminf_{n \to \infty}x_n$. Then the continuity of $f$ implies $\displaystyle \lim_{j \to \infty}f(x_{n_j}) = f(\limsup_{n \to \infty}x_n)$ and $\displaystyle \lim_{k \to \infty}f(x_{n_k}) = f(\liminf_{n \to \infty}x_n)$ which combined with $f(x_n) \to f(x)$ yields $\displaystyle f(x) = f(\liminf_{n \to \infty}x_n) = f(\limsup_{n \to \infty}x_n)$. Now $f$ is injective, so $\displaystyle \limsup_{n \to \infty}x_n = \liminf_{n \to \infty}x_n = x$, thus $x_n \to x$.
 \end{itemize}
+
+\section{Sequences of functions}
+
+\begin{itemize}
+\item \textbf{Def(pointwise convergence).:} Suppose $(f_n)$ is a sequence of functions $f_n:A \to \mathbb{R}$, and $f:A \to \mathbb{R}$ where $A \subseteq \mathbb{R}$. Then $f_n \to f$ \textit{pointwise} on $A$ if $f_n(x) \to f(x)$ as $n \to \infty$ for every $x \in A$. In other words
+\[
+\lim_{n \to \infty} f_n(x) = f(x)
+\]
+   that is $(f_n)$ \textit{converges pointwise} (to $f$) if the real sequences $(f_n(x))$ 
+   
+   converges to $f(x)$.
+
+\item \textbf{Ex.:} Let $f_n:[0,1] \to \mathbb{R}$, with $f_n(x) = x^n$. If $0 \leq x < 1$, then $x^n \to 0$, otherwise when $x = 1$ we have $x^n \to 1$. So $\displaystyle \lim_{n \to \infty} f_n(x) = f(x) = \begin{cases} 0, & x \in [0,1)\\1, & x = 1\end{cases}$.
+
+ Notice the jump discontinuity at $x = 1$ of $f$.
+
+Pointwise convergence does not preserve continuity!
+\end{itemize}
+
+\subsection{Uniform convergence}
+
+\begin{itemize}
+\item \textbf{Def(uniform convergence).:} Suppose $(f_n)$ is a sequence of functions $f_n:A \to \mathbb{R}$, and $f:A \to \mathbb{R}$ where $A \subseteq \mathbb{R}$. Then $f_n \to f$ \textit{uniformly} on $A$ if for every $\varepsilon > 0$ there exists an $N \in \mathbb{N}$ s.t. $n > N$ implies $|f_n(x) - f(x)| < \varepsilon$ for every $x \in A$.
+
+\item \textbf{Ex.:} the sequence $f_n(x) = x^n$ converges pointwise, but not uniformly on $[0,1]$. On the other hand, for any fixed $0 < t < 1$, $f_n$ does converge uniformly on $[0,t]$.
+
+\item \textbf{Def(uniformly Cauchy).:} A sequence of functions $f_n:A \to \mathbb{R}$ where $A \subseteq \mathbb{R}$ is \textit{uniformly Cauchy} if for every $\varepsilon > 0$ there exists an $N \in \mathbb{N}$ s.t. $n,m > N$ implies $|f_n(x) - f_m(x)| < \varepsilon$ for every $x \in A$.
+
+\item \textbf{Theorem:} A sequence of functions $f_n:A \to \mathbb{R}$ converges uniformly on $A$ iff it is uniformly Cauchy on $A$.
+
+\item \textbf{Proof:($\implies$):} given $\varepsilon > 0$ there exists an $N \in \mathbb{N}$ s.t. $n > N$ implies $|f_n(x) - f(x)| < \frac{\varepsilon}{2}$ for every $x \in A$. Then $n,m > N$ implies $|f_n(x) - f_m(x)| \leq |f_n(x) - f(x)| + |f_m(x) - f(x)| < \varepsilon$.
+
+   ($\Longleftarrow$): for each $x \in A$ we define $\displaystyle f(x) = \lim_{n \to \infty} f_n(x)$, since by the
+
+   condition this limit exists. Then $n,m > N$ implies that
+\[
+|f_n(x) - f_m(x)| < \varepsilon
+\]
+   and taking the limit $m \to \infty$ we get
+\[
+|f_n(x) - f(x)| \leq \varepsilon
+\]
+   for every $x \in A$.
+
+\item \textbf{Theorem:} If a sequence of continuous functions $f_n:A \to \mathbb{R}$ converges uniformly on $A$ to $f:A \to \mathbb{R}$, then $f$ is continuous on $A$.
+
+\item \textbf{Proof:} Suppose $x,y \in A$ and let $\varepsilon > 0$. Then $|f(x) - f(y)| \leq |f_n(x) - f(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)|$. By the uniform convergence there exists an $n \in \mathbb{N}$ s.t. $|f_n(x) - f(x)| < \frac{\varepsilon}{3}$ for every $x \in A$, thus also $|f_n(y) - f(y)| < \frac{\varepsilon}{3}$. By the continuity of $f_n$ for this fixed $n$ there exists $\delta > 0$ s.t. $|x - y| < \delta$ implies $|f_n(x) - f_n(y)| < \frac{\varepsilon}{3}$. Putting it together $|x - y| < \delta$ implies $|f(x) - f(y)| \leq |f_n(x) - f(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$, that is, $f$ is continuous on $A$.
+\end{itemize}
+
+\subsection{Series of functions}
+
+\begin{itemize}
+\item \textbf{Def.:} Suppose $(f_n)$ is a sequence of functions $f_n:A \to \mathbb{R}$ where $A \subseteq \mathbb{R}$. Let $S_n:A \to \mathbb{R}$ be the sequence of partial sums $\displaystyle S_n(x) = \sum_{i=1}^{n} f_i(x)$. Then the series $\displaystyle S(x) = \sum_{i=1}^{\infty} f_i(x)$ converges pointwise to $S:A \to \mathbb{R}$ on $A$, if $S_n \to S$ pointwise as $n \to \infty$ on $A$. Similarly, we talk about uniform convergence of $S_n$ to $S$, and also absolute convergence of $\displaystyle \sum_{i=1}^{\infty} f_i(x)$ when $\displaystyle \sum_{i=1}^{n} |f_i(x)|$ is Cauchy on $A$.
+
+\item \textbf{Theorem:} Suppose $(f_n)$ is a sequence of functions $f_n:A \to \mathbb{R}$. The series $\displaystyle \sum_{i=1}^{\infty} f_i$ converges uniformly iff $\varepsilon > 0$ there exists an $N \in \mathbb{N}$ s.t. $n > m > N$ implies $\displaystyle |\sum_{i=m+1}^{n} f_i(x)| < \varepsilon$ for every $x \in A$.
+
+\item \textbf{Proof:} Uniform convergence of $\displaystyle S_n(x) = \sum_{i=1}^{n} f_i(x)$ is equivalent to the uniform Cauchy condition $n > m > N$ implying $\displaystyle |\sum_{i=m+1}^{n} f_i(x)| < \varepsilon$ for every $x \in A$.
+\end{itemize}
+
+\subsection{Weierstrass majorization theorem}
+
+\begin{itemize}
+\item \textbf{Theorem(Weierstrass M-test):} Suppose $(f_n)$ is a sequence of functions $f_n:A \to \mathbb{R}$ and suppose that for every $n \in \mathbb{N}$ there exists an $M_n \geq 0$ constant s.t. $|f_n(x)| \leq M_n$ for every $x \in A$ and also $\displaystyle \sum_{n=1}^{\infty} M_n < \infty$. Then $\displaystyle \sum_{n=1}^{\infty} f_n(x)$ converges absolutely and uniformly on $A$.
+
+\item \textbf{Proof:} We have that $\displaystyle |\sum_{i=m+1}^{n} f_i(x)| \leq \sum_{i=m+1}^{n} |f_i(x)| \leq \sum_{i=m+1}^{n} M_i$ for every $\displaystyle x \in A$, thus $\sum_{n=1}^{\infty} M_n < \infty$ implies that $\displaystyle \sum_{i=m+1}^{n} M_i < \varepsilon$ for all $n > m > N$ for a suitable $N \in \mathbb{N}$ depending on $\varepsilon > 0$. By the Cauchy condition this implies that $\displaystyle \sum_{i=1}^{n} |f_i(x)|$ converges uniformly on $A$ and thus $\displaystyle \sum_{i=1}^{n} f_i(x)$ as well.
+\end{itemize}
     
 \end{document}
